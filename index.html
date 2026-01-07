@@ -10,7 +10,7 @@
 
   <style>
     :root {
-      --bg: #000000;
+      --bg: #05060a;
       --pink: #ff2fa0;
       --purple: #8b5cf6;
       --yellow: #ffe600;
@@ -26,14 +26,10 @@
 
     body {
       background:
-        /* BLACK BASE */
-        linear-gradient(#000000, #000000),
-        /* DARK OVERLAY */
         linear-gradient(
-          rgba(5,6,10,0.88),
-          rgba(5,6,10,0.88)
+          rgba(5,6,10,0.85),
+          rgba(5,6,10,0.85)
         ),
-        /* DINO PRINT */
         url("assets/art/JDXCAPTAIN-Dino-Print.png");
       background-size: cover;
       background-position: center;
@@ -79,6 +75,7 @@
     }
 
     .glitch {
+      position: relative;
       color: white;
       text-shadow:
         2px 0 var(--pink),
@@ -168,7 +165,6 @@
     <div class="btns">
       <a class="btn" href="#music">Music</a>
       <a class="btn" href="#tour">Tour</a>
-      <a class="btn" href="#socials">Socials</a>
       <a class="btn" href="#epk">EPK</a>
       <a class="btn" href="#merch">Merch</a>
     </div>
@@ -177,6 +173,7 @@
   <!-- MUSIC -->
   <section id="music">
     <h2>Music</h2>
+
     <iframe style="border-radius:12px"
       src="https://open.spotify.com/embed/artist/1xkXrS20mlIQ6KkzrTzm9d"
       width="100%" height="352" frameBorder="0"
@@ -192,17 +189,6 @@
     <div class="tour-date"><span>Oct 10, 2026 — Chain Reaction</span><span>Anaheim</span></div>
     <div class="tour-date"><span>Nov 06, 2026 — Soma</span><span>San Diego</span></div>
     <div class="tour-date"><span>Dec 12, 2026 — The Roxy</span><span>West Hollywood</span></div>
-  </section>
-
-  <!-- SOCIALS -->
-  <section id="socials">
-    <h2>Socials</h2>
-    <div class="btns">
-      <a class="btn" href="https://instagram.com/jdxcaptain" target="_blank">Instagram</a>
-      <a class="btn" href="https://tiktok.com/@jdxcaptain" target="_blank">TikTok</a>
-      <a class="btn" href="https://facebook.com/jdxcaptain" target="_blank">Facebook</a>
-      <a class="btn" href="https://x.com/jdxcaptain" target="_blank">X</a>
-    </div>
   </section>
 
   <!-- EPK -->
