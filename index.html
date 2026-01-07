@@ -25,7 +25,15 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #0b0f1a, var(--bg));
+      background:
+        linear-gradient(
+          rgba(5,6,10,0.85),
+          rgba(5,6,10,0.85)
+        ),
+        url("assets/art/JDXCAPTAIN-Dino-Print.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       color: var(--text);
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
@@ -64,7 +72,6 @@
       flex-direction: column;
       justify-content: center;
       text-align: center;
-      position: relative;
     }
 
     .glitch {
@@ -139,7 +146,6 @@
       font-weight: bold;
     }
 
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 3rem 1rem;
@@ -170,24 +176,16 @@
 
     <iframe style="border-radius:12px"
       src="https://open.spotify.com/embed/artist/1xkXrS20mlIQ6KkzrTzm9d"
-      width="100%" height="352" frameBorder="0" allowfullscreen=""
+      width="100%" height="352" frameBorder="0"
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
       loading="lazy"></iframe>
-
-    <div class="btns">
-      <a class="btn" href="https://music.apple.com/us/artist/jdx-captain/1579188852" target="_blank">Apple Music</a>
-      <a class="btn" href="https://soundcloud.com/jdxcaptain" target="_blank">SoundCloud</a>
-      <a class="btn" href="https://jdxcaptain.bandcamp.com/" target="_blank">Bandcamp</a>
-      <a class="btn" href="https://youtube.com/channel/UCRjzYpg-kxMoKvy2Fe23EqQ" target="_blank">YouTube</a>
-    </div>
   </section>
 
   <!-- TOUR -->
   <section id="tour">
     <h2>Tour</h2>
-
-    <div class="tour-date"><span>Aug 14, 2026 — Canyon Club, Agoura Hills</span><span>CA</span></div>
-    <div class="tour-date"><span>Sep 02, 2026 — The Regent Theater</span><span>LA</span></div>
+    <div class="tour-date"><span>Aug 14, 2026 — Canyon Club</span><span>CA</span></div>
+    <div class="tour-date"><span>Sep 02, 2026 — The Regent</span><span>LA</span></div>
     <div class="tour-date"><span>Oct 10, 2026 — Chain Reaction</span><span>Anaheim</span></div>
     <div class="tour-date"><span>Nov 06, 2026 — Soma</span><span>San Diego</span></div>
     <div class="tour-date"><span>Dec 12, 2026 — The Roxy</span><span>West Hollywood</span></div>
