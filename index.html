@@ -8,6 +8,9 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
 
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
   <style>
     @font-face {
       font-family: "BetrayalOfMind";
@@ -60,7 +63,6 @@
       text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
     }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -74,16 +76,6 @@
       font-size: clamp(3rem, 8vw, 6rem);
       color: white;
       text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
-    }
-
-    .glitch.burst {
-      animation: glitchBurst 0.35s steps(2,end) 2;
-    }
-
-    @keyframes glitchBurst {
-      0% { text-shadow: 2px 0 var(--pink), -2px 0 var(--blue); }
-      50% { text-shadow: -5px 0 var(--yellow), 5px 0 var(--purple); }
-      100% { text-shadow: 2px 0 var(--pink), -2px 0 var(--blue); }
     }
 
     .tagline {
@@ -108,34 +100,10 @@
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: transform 0.15s ease;
+      background: transparent;
+      cursor: pointer;
     }
 
-    .btn:hover {
-      transform: scale(1.08) skewX(-3deg);
-    }
-
-    /* TOUR */
-    .tour-list {
-      text-align: center;
-      line-height: 2;
-    }
-
-    /* SOCIALS */
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .socials a {
-      color: var(--yellow);
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 3rem 1rem;
@@ -147,88 +115,134 @@
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1 id="heroTitle" class="glitch"></h1>
-    <p id="heroTagline" class="tagline"></p>
+<section class="hero">
+  <h1 id="heroTitle" class="glitch"></h1>
+  <p id="heroTagline" class="tagline"></p>
 
-    <div class="btns">
-      <a class="btn" href="#music">Music</a>
-      <a class="btn" href="#tour">Tour</a>
-      <a class="btn" href="#socials">Socials</a>
-      <a class="btn" href="#epk">EPK</a>
-      <a class="btn" href="#merch">Merch</a>
-    </div>
-  </section>
+  <div class="btns">
+    <a class="btn" href="#music">Music</a>
+    <a class="btn" href="#tour">Tour</a>
+    <a class="btn" href="#socials">Socials</a>
+    <a class="btn" href="#epk">EPK</a>
+    <a class="btn" href="#merch">Merch</a>
+  </div>
+</section>
 
-  <!-- MUSIC -->
-  <section id="music">
-    <h2>Music</h2>
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1xkXrS20mlIQ6KkzrTzm9d" width="100%" height="352" frameborder="0" allowfullscreen loading="lazy"></iframe>
-  </section>
+<section id="music">
+  <h2>Music</h2>
+  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1xkXrS20mlIQ6KkzrTzm9d" width="100%" height="352" loading="lazy"></iframe>
+</section>
 
-  <!-- TOUR -->
-  <section id="tour">
-    <h2>Tour</h2>
-    <div class="tour-list">
-      Jun 14 2026 – The Observatory, Santa Ana, CA<br>
-      Jul 02 2026 – Chain Reaction, Anaheim, CA<br>
-      Jul 18 2026 – The Glass House, Pomona, CA<br>
-      Aug 06 2026 – Soma Side Stage, San Diego, CA<br>
-      Aug 22 2026 – Canyon Club, Agoura Hills, CA
-    </div>
-  </section>
+<section id="tour">
+  <h2>Tour</h2>
+  <p style="text-align:center">
+    Jun 14 2026 – The Observatory, Santa Ana, CA<br>
+    Jul 02 2026 – Chain Reaction, Anaheim, CA<br>
+    Jul 18 2026 – The Glass House, Pomona, CA<br>
+    Aug 06 2026 – Soma Side Stage, San Diego, CA<br>
+    Aug 22 2026 – Canyon Club, Agoura Hills, CA
+  </p>
+</section>
 
-  <!-- SOCIALS -->
-  <section id="socials">
-    <h2>Socials</h2>
-    <div class="socials">
-      <a href="https://instagram.com/jdxcaptain">Instagram</a>
-      <a href="https://tiktok.com/@jdxcaptain">TikTok</a>
-      <a href="https://facebook.com/jdxcaptain">Facebook</a>
-      <a href="https://x.com/jdxcaptain">X</a>
-    </div>
-  </section>
+<section id="socials">
+  <h2>Socials</h2>
+  <p style="text-align:center">
+    <a href="https://instagram.com/jdxcaptain">Instagram</a> |
+    <a href="https://tiktok.com/@jdxcaptain">TikTok</a> |
+    <a href="https://facebook.com/jdxcaptain">Facebook</a> |
+    <a href="https://x.com/jdxcaptain">X</a>
+  </p>
+</section>
 
-  <!-- EPK -->
-  <section id="epk">
-    <h2>Press / EPK</h2>
-    <p style="text-align:center">
-      Download the official Electronic Press Kit.<br><br>
-      <a class="btn" href="#">Download EPK (PDF)</a>
-    </p>
-  </section>
+<section id="epk">
+  <h2>Press / EPK</h2>
+  <p style="text-align:center">
+    <button class="btn" onclick="generateEPK()">Download EPK (PDF)</button>
+  </p>
+</section>
 
-  <!-- MERCH -->
-  <section id="merch">
-    <h2>Merch</h2>
-    <p style="text-align:center">
-      Store coming soon.<br><br>
-      <a class="btn" href="#">View Merch Mockups</a>
-    </p>
-  </section>
+<section id="merch">
+  <h2>Merch</h2>
+  <p style="text-align:center">Store coming soon.</p>
+</section>
 
-  <footer>
-    © 2026 JDX:CAPTAIN — Solo Artist
-  </footer>
+<footer>
+  © 2026 JDX:CAPTAIN — Solo Artist
+</footer>
 
-  <script>
-    const CMS = {
-      heroTitle: "JDX:CAPTAIN",
-      tagline: "It’s All About the Colon"
-    };
+<script>
+  const CMS = {
+    heroTitle: "JDX:CAPTAIN",
+    tagline: "It’s All About the :"
+  };
 
-    heroTitle.textContent = CMS.heroTitle;
-    heroTagline.textContent = CMS.tagline;
+  heroTitle.textContent = CMS.heroTitle;
+  heroTagline.textContent = CMS.tagline;
 
-    function glitchBurst() {
-      heroTitle.classList.add("burst");
-      setTimeout(() => heroTitle.classList.remove("burst"), 400);
-      setTimeout(glitchBurst, Math.random() * 4000 + 2000);
+  async function generateEPK() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    let y = 15;
+
+    doc.setFontSize(18);
+    doc.text("JDX:CAPTAIN — Electronic Press Kit", 10, y);
+    y += 10;
+
+    doc.setFontSize(11);
+    doc.text(
+`Artist: JDX:CAPTAIN
+Real Name: JD Harris
+Pronouns: He/Him
+Genres: Hardcore Emo/Screamo, Metal, Pop Punk, Hip Hop, Jazz, Pop, Salsa, EDM
+
+SHORT BIO
+Boundary-pushing solo artist blending extreme music with infectious melodies.
+
+LONG BIO
+Imagine The Browning, Before I Turn, Jack the Underdog, and Sueco colliding in one project.
+Brutal verses, rap flows, jazz bridges, and massive choruses.
+
+DISCOGRAPHY
+• The Light feat. jWondr (Aug 23, 2024)
+• Your Shallow Intentions... (Jan 31, 2025)
+• Why Is It When We Try To Dream... (Feb 28, 2025)
+• Responsibility Cover (Mar 2025)
+• IT'S TIME (Apr 18, 2025)
+• It's Over Now (Jul 25, 2025)
+
+LIVE EXPERIENCE
+The Roxy, Whisky a Go Go, Warped Tour
+
+LISTEN
+Spotify & YouTube`,
+      10, y
+    );
+
+    doc.addPage();
+    doc.text("Visuals", 10, 15);
+
+    const images = [
+      "assets/CAPTAIN/captain.jpeg",
+      "assets/CAPTAIN/captain2.jpeg",
+      "assets/CAPTAIN/Media (29).jpeg",
+      "assets/CAPTAIN/CanyonClub6.jpeg"
+    ];
+
+    for (let i = 0; i < images.length; i++) {
+      const img = await fetch(images[i]).then(r => r.blob());
+      const data = await new Promise(res => {
+        const reader = new FileReader();
+        reader.onload = () => res(reader.result);
+        reader.readAsDataURL(img);
+      });
+
+      doc.addImage(data, "JPEG", 10, 20 + i * 60, 180, 50);
     }
 
-    setTimeout(glitchBurst, 3000);
-  </script>
+    doc.save("JDXCAPTAIN_EPK.pdf");
+  }
+</script>
 
 </body>
 </html>
