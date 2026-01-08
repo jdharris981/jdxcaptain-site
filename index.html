@@ -21,7 +21,6 @@
     }
 
     :root {
-      --bg: #000000;
       --pink: #ff2fa0;
       --purple: #8b5cf6;
       --yellow: #ffe600;
@@ -36,13 +35,16 @@
     }
 
     body {
-      background:
-        linear-gradient(#000000, #000000),
-        linear-gradient(rgba(5,6,10,0.88), rgba(5,6,10,0.88)),
-        url("assets/art/JDXCAPTAIN-Dino-Print.png");
+      background-color: #000; /* SOLID BLACK BASE */
+
+      background-image:
+        linear-gradient(rgba(5,6,10,0.85), rgba(5,6,10,0.85)),
+        url("assets/art/JDXCaptain-Dino2.png");
+
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+
       color: var(--text);
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
@@ -69,7 +71,6 @@
       color: white;
       position: relative;
       text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
-      transition: text-shadow 0.15s ease;
     }
 
     .glitch.burst {
@@ -167,7 +168,6 @@
 
 <body>
 
-  <!-- HERO -->
   <section class="hero">
     <h1 id="heroTitle" class="glitch"></h1>
     <p id="heroTagline" class="tagline"></p>
@@ -185,7 +185,6 @@
     © 2026 JDX:CAPTAIN — Solo Artist
   </footer>
 
-  <!-- CMS + GLITCH CONTROL -->
   <script>
     /* SIMPLE CMS OBJECT */
     const CMS = {
@@ -202,9 +201,7 @@
     function triggerGlitch() {
       hero.classList.add("burst");
       setTimeout(() => hero.classList.remove("burst"), 400);
-
-      const next = Math.random() * 4000 + 2000; // 2–6 sec
-      setTimeout(triggerGlitch, next);
+      setTimeout(triggerGlitch, Math.random() * 4000 + 2000);
     }
 
     setTimeout(triggerGlitch, 3000);
