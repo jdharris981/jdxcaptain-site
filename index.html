@@ -54,26 +54,6 @@
       margin: auto;
     }
 
-    h1, h2 {
-      font-family: 'Oswald', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    h1 {
-      font-size: clamp(3rem, 8vw, 6rem);
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      opacity: 0.85;
-      line-height: 1.6;
-    }
-
     /* HERO */
     .hero {
       min-height: 100vh;
@@ -85,16 +65,22 @@
 
     .glitch {
       font-family: "BetrayalOfMind", 'Oswald', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
       color: white;
+      position: relative;
       text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
-      animation: glitch 2s infinite;
+      transition: text-shadow 0.15s ease;
     }
 
-    @keyframes glitch {
+    .glitch.burst {
+      animation: glitchBurst 0.35s steps(2, end) 2;
+    }
+
+    @keyframes glitchBurst {
       0% { text-shadow: 2px 0 var(--pink), -2px 0 var(--blue); }
-      20% { text-shadow: -2px 0 var(--yellow), 2px 0 var(--purple); }
-      40% { text-shadow: 3px 0 var(--blue), -3px 0 var(--pink); }
-      60% { text-shadow: -1px 0 var(--purple), 1px 0 var(--yellow); }
+      25% { text-shadow: -4px 0 var(--yellow), 4px 0 var(--purple); }
+      50% { text-shadow: 3px 0 var(--blue), -3px 0 var(--pink); }
+      75% { text-shadow: -5px 0 var(--purple), 5px 0 var(--yellow); }
       100% { text-shadow: 2px 0 var(--pink), -2px 0 var(--blue); }
     }
 
@@ -132,15 +118,18 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: var(--pink);
       opacity: 0.15;
       mix-blend-mode: screen;
-      transform: translateX(-100%);
+    }
+
+    .btn::before {
+      background: var(--pink);
+      transform: translateX(-120%);
     }
 
     .btn::after {
       background: var(--blue);
-      transform: translateX(100%);
+      transform: translateX(120%);
     }
 
     .btn:hover {
@@ -167,14 +156,6 @@
       100% { transform: translateX(-120%); }
     }
 
-    /* TOUR */
-    .tour-date {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem 0;
-      border-bottom: 1px solid #222;
-    }
-
     footer {
       text-align: center;
       padding: 3rem 1rem;
@@ -188,8 +169,8 @@
 
   <!-- HERO -->
   <section class="hero">
-    <h1 class="glitch">JDX:CAPTAIN</h1>
-    <p class="tagline">It’s All About the Colon</p>
+    <h1 id="heroTitle" class="glitch"></h1>
+    <p id="heroTagline" class="tagline"></p>
 
     <div class="btns">
       <a class="btn" href="#music">Music</a>
@@ -200,46 +181,34 @@
     </div>
   </section>
 
-  <!-- MUSIC -->
-  <section id="music">
-    <h2>Music</h2>
-    <iframe style="border-radius:12px"
-      src="https://open.spotify.com/embed/artist/1xkXrS20mlIQ6KkzrTzm9d"
-      width="100%" height="352" frameBorder="0"
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy"></iframe>
-  </section>
-
-  <!-- TOUR -->
-  <section id="tour">
-    <h2>Tour</h2>
-    <div class="tour-date"><span>Aug 14, 2026 — Canyon Club</span><span>CA</span></div>
-    <div class="tour-date"><span>Sep 02, 2026 — The Regent</span><span>LA</span></div>
-    <div class="tour-date"><span>Oct 10, 2026 — Chain Reaction</span><span>Anaheim</span></div>
-    <div class="tour-date"><span>Nov 06, 2026 — Soma</span><span>San Diego</span></div>
-    <div class="tour-date"><span>Dec 12, 2026 — The Roxy</span><span>West Hollywood</span></div>
-  </section>
-
-  <!-- SOCIALS -->
-  <section id="socials">
-    <h2>Socials</h2>
-    <div class="btns">
-      <a class="btn" href="https://instagram.com/jdxcaptain" target="_blank">Instagram</a>
-      <a class="btn" href="https://tiktok.com/@jdxcaptain" target="_blank">TikTok</a>
-      <a class="btn" href="https://facebook.com/jdxcaptain" target="_blank">Facebook</a>
-      <a class="btn" href="https://x.com/jdxcaptain" target="_blank">X</a>
-    </div>
-  </section>
-
-  <!-- EPK -->
-  <section id="epk">
-    <h2>Press / EPK</h2>
-    <p>Press-ready assets, photos, bio, and tech info.</p>
-  </section>
-
   <footer>
     © 2026 JDX:CAPTAIN — Solo Artist
   </footer>
+
+  <!-- CMS + GLITCH CONTROL -->
+  <script>
+    /* SIMPLE CMS OBJECT */
+    const CMS = {
+      heroTitle: "JDX:CAPTAIN",
+      tagline: "It’s All About the :"
+    };
+
+    document.getElementById("heroTitle").textContent = CMS.heroTitle;
+    document.getElementById("heroTagline").textContent = CMS.tagline;
+
+    /* RANDOM GLITCH BURSTS */
+    const hero = document.getElementById("heroTitle");
+
+    function triggerGlitch() {
+      hero.classList.add("burst");
+      setTimeout(() => hero.classList.remove("burst"), 400);
+
+      const next = Math.random() * 4000 + 2000; // 2–6 sec
+      setTimeout(triggerGlitch, next);
+    }
+
+    setTimeout(triggerGlitch, 3000);
+  </script>
 
 </body>
 </html>
