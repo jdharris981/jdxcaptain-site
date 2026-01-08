@@ -5,16 +5,19 @@
   <title>JDX:CAPTAIN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
 
   <style>
-    /* CUSTOM TITLE FONT */
+    /* CUSTOM FONTS */
     @font-face {
       font-family: "BetrayalOfMind";
       src: url("assets/fonts/BetrayalOfMind-dBOZ.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "CMFont";
+      src: url("assets/fonts/CmFont-pgggZ.ttf") format("truetype");
     }
 
     :root {
@@ -35,10 +38,7 @@
     body {
       background:
         linear-gradient(#000000, #000000),
-        linear-gradient(
-          rgba(5,6,10,0.88),
-          rgba(5,6,10,0.88)
-        ),
+        linear-gradient(rgba(5,6,10,0.88), rgba(5,6,10,0.88)),
         url("assets/art/JDXCAPTAIN-Dino-Print.png");
       background-size: cover;
       background-position: center;
@@ -86,9 +86,7 @@
     .glitch {
       font-family: "BetrayalOfMind", 'Oswald', sans-serif;
       color: white;
-      text-shadow:
-        2px 0 var(--pink),
-        -2px 0 var(--blue);
+      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
       animation: glitch 2s infinite;
     }
 
@@ -102,7 +100,9 @@
 
     .tagline {
       margin-top: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      font-family: "CMFont", monospace;
+      letter-spacing: 3px;
       color: var(--yellow);
     }
 
@@ -116,18 +116,55 @@
     }
 
     .btn {
+      position: relative;
       border: 2px solid var(--pink);
       padding: 0.75rem 1.5rem;
       color: white;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      overflow: hidden;
+      transition: transform 0.15s ease;
+    }
+
+    .btn::before,
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--pink);
+      opacity: 0.15;
+      mix-blend-mode: screen;
+      transform: translateX(-100%);
+    }
+
+    .btn::after {
+      background: var(--blue);
+      transform: translateX(100%);
     }
 
     .btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 20px var(--pink);
+      transform: scale(1.08) skewX(-3deg);
+    }
+
+    .btn:hover::before {
+      animation: glitchBtn 0.35s linear forwards;
+    }
+
+    .btn:hover::after {
+      animation: glitchBtnAlt 0.35s linear forwards;
+    }
+
+    @keyframes glitchBtn {
+      0% { transform: translateX(-120%); }
+      50% { transform: translateX(20%); }
+      100% { transform: translateX(120%); }
+    }
+
+    @keyframes glitchBtnAlt {
+      0% { transform: translateX(120%); }
+      50% { transform: translateX(-20%); }
+      100% { transform: translateX(-120%); }
     }
 
     /* TOUR */
@@ -136,23 +173,6 @@
       justify-content: space-between;
       padding: 1rem 0;
       border-bottom: 1px solid #222;
-    }
-
-    /* EMAIL */
-    input[type="email"] {
-      padding: 0.75rem;
-      width: 250px;
-      border: none;
-      margin-right: 0.5rem;
-    }
-
-    button {
-      padding: 0.75rem 1.2rem;
-      border: none;
-      background: var(--pink);
-      color: black;
-      cursor: pointer;
-      font-weight: bold;
     }
 
     footer {
@@ -169,7 +189,7 @@
   <!-- HERO -->
   <section class="hero">
     <h1 class="glitch">JDX:CAPTAIN</h1>
-    <p class="tagline">It’s All About the :</p>
+    <p class="tagline">It’s All About the Colon</p>
 
     <div class="btns">
       <a class="btn" href="#music">Music</a>
@@ -215,28 +235,6 @@
   <section id="epk">
     <h2>Press / EPK</h2>
     <p>Press-ready assets, photos, bio, and tech info.</p>
-    <div class="btns">
-      <a class="btn" href="#">Download EPK (Coming Soon)</a>
-    </div>
-  </section>
-
-  <!-- EMAIL -->
-  <section>
-    <h2>Stay Connected</h2>
-    <form>
-      <input type="email" placeholder="Email address">
-      <button type="submit">Join</button>
-    </form>
-  </section>
-
-  <!-- MERCH -->
-  <section id="merch">
-    <h2>Merch</h2>
-    <p>Store launching soon.</p>
-    <div class="btns">
-      <a class="btn" href="#">View Mockups</a>
-      <a class="btn" href="#">Store</a>
-    </div>
   </section>
 
   <footer>
