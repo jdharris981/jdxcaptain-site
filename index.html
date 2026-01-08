@@ -5,111 +5,57 @@
   <title>JDX:CAPTAIN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
-
-  <!-- jsPDF -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <style>
     @font-face {
       font-family: "BetrayalOfMind";
-      src: url("assets/fonts/BetrayalOfMind-dBOZ.ttf") format("truetype");
+      src: url("assets/fonts/BetrayalOfMind-dBOZ.ttf");
     }
-
     @font-face {
       font-family: "CMFont";
-      src: url("assets/fonts/CmFont-pgggZ.ttf") format("truetype");
+      src: url("assets/fonts/CmFont-pgggZ.ttf");
     }
 
     :root {
-      --pink: #ff2fa0;
-      --purple: #8b5cf6;
-      --yellow: #ffe600;
-      --blue: #00b3ff;
-      --text: #eaeaf0;
+      --pink:#ff2fa0;
+      --blue:#00b3ff;
+      --yellow:#ffe600;
+      --text:#eaeaf0;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
+    * { box-sizing:border-box; margin:0; padding:0; scroll-behavior:smooth; }
 
     body {
-      background-color: #000;
-      background-image:
-        linear-gradient(rgba(5,6,10,0.85), rgba(5,6,10,0.85)),
-        url("assets/art/JDXCaptain-Dino2.png");
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: var(--text);
-      font-family: 'Montserrat', sans-serif;
+      background:#000 url("assets/art/JDXCaptain-Dino2.png") center/cover fixed;
+      color:var(--text);
+      font-family:Montserrat,sans-serif;
     }
 
-    section {
-      padding: 6rem 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-
+    section { padding:6rem 2rem; max-width:1100px; margin:auto; }
     h2 {
-      font-family: "BetrayalOfMind", Oswald, sans-serif;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
+      font-family:BetrayalOfMind,Oswald,sans-serif;
+      text-align:center;
+      margin-bottom:2rem;
+      text-shadow:2px 0 var(--pink),-2px 0 var(--blue);
     }
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-    }
+    .hero { min-height:100vh; text-align:center; display:flex; flex-direction:column; justify-content:center; }
+    .glitch { font-family:BetrayalOfMind; font-size:clamp(3rem,8vw,6rem); }
+    .tagline { font-family:CMFont; color:var(--yellow); margin-top:1rem; }
 
-    .glitch {
-      font-family: "BetrayalOfMind", Oswald, sans-serif;
-      font-size: clamp(3rem, 8vw, 6rem);
-      color: white;
-      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
-    }
-
-    .tagline {
-      font-family: "CMFont", monospace;
-      letter-spacing: 3px;
-      color: var(--yellow);
-      margin-top: 1rem;
-    }
-
-    .btns {
-      margin-top: 3rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-
+    .btns { margin-top:3rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
     .btn {
-      border: 2px solid var(--pink);
-      padding: 0.75rem 1.5rem;
-      color: white;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      background: transparent;
-      cursor: pointer;
+      border:2px solid var(--pink);
+      background:none;
+      color:white;
+      padding:.75rem 1.5rem;
+      cursor:pointer;
+      text-transform:uppercase;
     }
 
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      font-size: 0.8rem;
-      opacity: 0.6;
-    }
+    footer { text-align:center; opacity:.6; padding:3rem 1rem; }
   </style>
 </head>
 
@@ -130,7 +76,7 @@
 
 <section id="music">
   <h2>Music</h2>
-  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1xkXrS20mlIQ6KkzrTzm9d" width="100%" height="352" loading="lazy"></iframe>
+  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1xkXrS20mlIQ6KkzrTzm9d" width="100%" height="352"></iframe>
 </section>
 
 <section id="tour">
@@ -156,9 +102,10 @@
 
 <section id="epk">
   <h2>Press / EPK</h2>
-  <p style="text-align:center">
-    <button class="btn" onclick="generateEPK()">Download EPK (PDF)</button>
-  </p>
+  <div class="btns">
+    <button class="btn" onclick="generateFullEPK()">Download Full EPK</button>
+    <button class="btn" onclick="generateVenueEPK()">One-Page Venue EPK</button>
+  </div>
 </section>
 
 <section id="merch">
@@ -166,82 +113,88 @@
   <p style="text-align:center">Store coming soon.</p>
 </section>
 
-<footer>
-  © 2026 JDX:CAPTAIN — Solo Artist
-</footer>
+<footer>© 2026 JDX:CAPTAIN</footer>
 
 <script>
-  const CMS = {
-    heroTitle: "JDX:CAPTAIN",
-    tagline: "It’s All About the :"
-  };
+const CMS = { heroTitle:"JDX:CAPTAIN", tagline:"It’s All About the :" };
+heroTitle.textContent = CMS.heroTitle;
+heroTagline.textContent = CMS.tagline;
 
-  heroTitle.textContent = CMS.heroTitle;
-  heroTagline.textContent = CMS.tagline;
+const SPOTIFY = "https://open.spotify.com/artist/1xkXrS20mlIQ6KkzrTzm9d";
+const YOUTUBE = "https://youtube.com/channel/UCRjzYpg-kxMoKvy2Fe23EqQ";
 
-  async function generateEPK() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+function generateFullEPK() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  let y = 15;
 
-    let y = 15;
+  doc.setFontSize(18);
+  doc.text("JDX:CAPTAIN — Electronic Press Kit",10,y);
+  y+=10;
 
-    doc.setFontSize(18);
-    doc.text("JDX:CAPTAIN — Electronic Press Kit", 10, y);
-    y += 10;
+  doc.setFontSize(11);
+  doc.text("Listen:",10,y);
+  doc.textWithLink("Spotify",25,y,{url:SPOTIFY});
+  doc.textWithLink("YouTube",45,y,{url:YOUTUBE});
+  y+=8;
 
-    doc.setFontSize(11);
-    doc.text(
-`Artist: JDX:CAPTAIN
-Real Name: JD Harris
-Pronouns: He/Him
-Genres: Hardcore Emo/Screamo, Metal, Pop Punk, Hip Hop, Jazz, Pop, Salsa, EDM
+  doc.text(
+`Boundary-pushing solo artist blending hardcore emo, metal, pop punk,
+hip hop, jazz, salsa, and EDM.
 
-SHORT BIO
-Boundary-pushing solo artist blending extreme music with infectious melodies.
+Known for massive breakdowns, genre fusion,
+and emotionally charged performances.
 
-LONG BIO
-Imagine The Browning, Before I Turn, Jack the Underdog, and Sueco colliding in one project.
-Brutal verses, rap flows, jazz bridges, and massive choruses.
+Notable Venues:
+• The Roxy
+• Whisky a Go Go
+• Warped Tour`,10,y);
 
-DISCOGRAPHY
-• The Light feat. jWondr (Aug 23, 2024)
-• Your Shallow Intentions... (Jan 31, 2025)
-• Why Is It When We Try To Dream... (Feb 28, 2025)
-• Responsibility Cover (Mar 2025)
-• IT'S TIME (Apr 18, 2025)
-• It's Over Now (Jul 25, 2025)
+  doc.addPage();
+  doc.text("Visuals",10,15);
 
-LIVE EXPERIENCE
-The Roxy, Whisky a Go Go, Warped Tour
+  const imgs=[
+    "assets/CAPTAIN/captain.jpeg",
+    "assets/CAPTAIN/captain2.jpeg",
+    "assets/CAPTAIN/Media (29).jpeg",
+    "assets/CAPTAIN/CanyonClub6.jpeg"
+  ];
 
-LISTEN
-Spotify & YouTube`,
-      10, y
-    );
+  imgs.forEach(async (src,i)=>{
+    const b=await fetch(src).then(r=>r.blob());
+    const d=await new Promise(r=>{let f=new FileReader();f.onload=()=>r(f.result);f.readAsDataURL(b);});
+    doc.addImage(d,"JPEG",10,20+i*60,180,50);
+  });
 
-    doc.addPage();
-    doc.text("Visuals", 10, 15);
+  doc.save("JDXCAPTAIN_EPK.pdf");
+}
 
-    const images = [
-      "assets/CAPTAIN/captain.jpeg",
-      "assets/CAPTAIN/captain2.jpeg",
-      "assets/CAPTAIN/Media (29).jpeg",
-      "assets/CAPTAIN/CanyonClub6.jpeg"
-    ];
+function generateVenueEPK() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
 
-    for (let i = 0; i < images.length; i++) {
-      const img = await fetch(images[i]).then(r => r.blob());
-      const data = await new Promise(res => {
-        const reader = new FileReader();
-        reader.onload = () => res(reader.result);
-        reader.readAsDataURL(img);
-      });
+  doc.setFontSize(20);
+  doc.text("JDX:CAPTAIN",10,20);
+  doc.setFontSize(12);
+  doc.text("Solo Artist | High-Energy Genre Fusion",10,30);
 
-      doc.addImage(data, "JPEG", 10, 20 + i * 60, 180, 50);
-    }
+  doc.text("Listen:",10,45);
+  doc.textWithLink("Spotify",25,45,{url:SPOTIFY});
+  doc.textWithLink("YouTube",45,45,{url:YOUTUBE});
 
-    doc.save("JDXCAPTAIN_EPK.pdf");
-  }
+  doc.text(
+`Live Experience:
+The Roxy • Whisky a Go Go • Warped Tour
+
+Style:
+Hardcore emo, metal, pop punk,
+hip hop & EDM fusion
+
+Available for:
+Clubs • Festivals • Support Slots`,10,65);
+
+  doc.save("JDXCAPTAIN_Venue_EPK.pdf");
+}
 </script>
 
 </body>
