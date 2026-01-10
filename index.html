@@ -379,6 +379,7 @@
 
     .music-content {
       background: rgba(0, 0, 0, 0.9);
+      border: 2px solid var(--pink);
       border-radius: 10px;
       padding: 2.5rem 2rem;
       margin-top: 2rem;
@@ -387,7 +388,9 @@
     .music-content h2,
     .socials-content h2,
     .newsletter-content h2,
-    .epk-content h2 {
+    .epk-content h2,
+    .merch-placeholder h2,
+    .tour-content h2 {
       margin-bottom: 2rem;
       margin-top: 0;
     }
@@ -404,10 +407,23 @@
       text-align: center;
     }
 
+    .tour-content {
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      margin-top: 2rem;
+    }
+
+    .tour-content h2 {
+      margin-bottom: 2rem;
+      margin-top: 0;
+    }
+
     .tour-dates {
       display: grid;
       gap: 1.5rem;
-      margin-top: 2rem;
+      margin-top: 0;
     }
 
     .tour-date {
@@ -434,6 +450,10 @@
     /* Socials Section */
     #socials {
       text-align: center;
+      background: none !important;
+      border-radius: 0;
+      margin-top: 0;
+      margin-bottom: 0;
     }
 
     .socials-content {
@@ -541,6 +561,10 @@
     /* EPK Section */
     #epk {
       text-align: center;
+      background: none !important;
+      border-radius: 0;
+      margin-top: 0;
+      margin-bottom: 0;
     }
 
     .epk-content {
@@ -609,6 +633,10 @@
     /* Merch Section */
     #merch {
       text-align: center;
+      background: none !important;
+      border-radius: 0;
+      margin-top: 0;
+      margin-bottom: 0;
     }
 
     .merch-placeholder {
@@ -622,6 +650,38 @@
     .merch-placeholder p {
       font-size: 1.2rem;
       color: var(--yellow);
+    }
+
+    /* Games Section */
+    .games-images {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .games-image {
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 2px solid var(--pink);
+      transition: all 0.3s ease;
+    }
+
+    .games-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 20px rgba(255, 47, 160, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .games-images {
+        gap: 1rem;
+      }
+      .games-image {
+        max-width: 250px;
+      }
     }
 
     /* Footer */
@@ -757,10 +817,13 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">Home</a></li>
       <li><a href="#music">Music</a></li>
-      <li><a href="#tour">Tour</a></li>
       <li><a href="#socials">Socials</a></li>
       <li><a href="#epk">EPK</a></li>
+      <li><a href="#games">Games</a></li>
       <li><a href="#merch">Merch</a></li>
+      <li><a href="#tour">Tour</a></li>
+      <li><a href="https://poppunkfitness.com" target="_blank" rel="noopener noreferrer">PPF</a></li>
+      <li><a href="https://starshipstudios.com" target="_blank" rel="noopener noreferrer">SSS</a></li>
     </ul>
   </div>
 </nav>
@@ -776,10 +839,13 @@
 
   <div class="btns">
     <a class="btn" href="#music">Music</a>
-    <a class="btn" href="#tour">Tour</a>
     <a class="btn" href="#socials">Socials</a>
     <a class="btn" href="#epk">EPK</a>
+    <a class="btn" href="#games">Games</a>
     <a class="btn" href="#merch">Merch</a>
+    <a class="btn" href="#tour">Tour</a>
+    <a class="btn" href="https://poppunkfitness.com" target="_blank" rel="noopener noreferrer">PPF</a>
+    <a class="btn" href="https://starshipstudios.com" target="_blank" rel="noopener noreferrer">SSS</a>
   </div>
   <div class="hero-images-bottom">
     <img src="assets/CAPTAIN/Media (28).jpeg" alt="JDX:CAPTAIN" class="hero-image">
@@ -801,37 +867,6 @@
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
       loading="lazy">
     </iframe>
-  </div>
-</section>
-
-<section id="tour">
-  <h2>Tour Dates</h2>
-  <div class="tour-dates">
-    <div class="tour-date">
-      <strong>Jun 14, 2026</strong>
-      <div>The Observatory</div>
-      <div style="color: var(--blue); margin-top: 0.5rem;">Santa Ana, CA</div>
-    </div>
-    <div class="tour-date">
-      <strong>Jul 02, 2026</strong>
-      <div>Chain Reaction</div>
-      <div style="color: var(--blue); margin-top: 0.5rem;">Anaheim, CA</div>
-    </div>
-    <div class="tour-date">
-      <strong>Jul 18, 2026</strong>
-      <div>The Glass House</div>
-      <div style="color: var(--blue); margin-top: 0.5rem;">Pomona, CA</div>
-    </div>
-    <div class="tour-date">
-      <strong>Aug 06, 2026</strong>
-      <div>Soma Side Stage</div>
-      <div style="color: var(--blue); margin-top: 0.5rem;">San Diego, CA</div>
-    </div>
-    <div class="tour-date">
-      <strong>Aug 22, 2026</strong>
-      <div>Canyon Club</div>
-      <div style="color: var(--blue); margin-top: 0.5rem;">Agoura Hills, CA</div>
-    </div>
   </div>
 </section>
 
@@ -879,11 +914,55 @@
   </div>
 </section>
 
-<section id="merch">
-  <h2>Merch</h2>
+<section id="games">
   <div class="merch-placeholder">
+    <h2>Games</h2>
+    <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.8; text-align: center;">Coming soon!</p>
+    <div class="games-images">
+      <img src="https://raw.githubusercontent.com/jdharris981/jdxcaptain-site/main/assets/Games/JDX%20NES.png" alt="JDX NES" class="games-image">
+      <img src="https://raw.githubusercontent.com/jdharris981/jdxcaptain-site/main/assets/Games/JDX%20SNES3.png" alt="JDX SNES3" class="games-image">
+    </div>
+  </div>
+</section>
+
+<section id="merch">
+  <div class="merch-placeholder">
+    <h2>Merch</h2>
     <p>🛍️ Store coming soon!</p>
     <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.8;">Check back soon for exclusive JDX:CAPTAIN merchandise</p>
+  </div>
+</section>
+
+<section id="tour">
+  <div class="tour-content">
+    <h2>Tour Dates</h2>
+    <div class="tour-dates">
+    <div class="tour-date">
+      <strong>Jun 14, 2026</strong>
+      <div>The Observatory</div>
+      <div style="color: var(--blue); margin-top: 0.5rem;">Santa Ana, CA</div>
+    </div>
+    <div class="tour-date">
+      <strong>Jul 02, 2026</strong>
+      <div>Chain Reaction</div>
+      <div style="color: var(--blue); margin-top: 0.5rem;">Anaheim, CA</div>
+    </div>
+    <div class="tour-date">
+      <strong>Jul 18, 2026</strong>
+      <div>The Glass House</div>
+      <div style="color: var(--blue); margin-top: 0.5rem;">Pomona, CA</div>
+    </div>
+    <div class="tour-date">
+      <strong>Aug 06, 2026</strong>
+      <div>Soma Side Stage</div>
+      <div style="color: var(--blue); margin-top: 0.5rem;">San Diego, CA</div>
+    </div>
+    <div class="tour-date">
+      <strong>Aug 22, 2026</strong>
+      <div>Canyon Club</div>
+      <div style="color: var(--blue); margin-top: 0.5rem;">Agoura Hills, CA</div>
+    </div>
+    </div>
   </div>
 </section>
 
