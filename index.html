@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <title>JDX:CAPTAIN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JDX:CAPTAIN - Boundary-pushing solo artist blending hardcore emo, metal, pop punk, hip hop, jazz, salsa, and EDM.">
 
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <style>
@@ -19,49 +20,757 @@
     }
 
     :root {
-      --pink:#ff2fa0;
-      --blue:#00b3ff;
-      --yellow:#ffe600;
-      --text:#eaeaf0;
+      --pink: #ff2fa0;
+      --blue: #00b3ff;
+      --yellow: #ffe600;
+      --text: #eaeaf0;
+      --dark-bg: #0a0a0a;
+      --section-bg: rgba(10, 10, 10, 0.85);
     }
 
-    * { box-sizing:border-box; margin:0; padding:0; scroll-behavior:smooth; }
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      scroll-behavior: smooth; 
+    }
 
     body {
-      background:#000 url("assets/art/JDXCaptain-Dino2.png") center/cover fixed;
-      color:var(--text);
-      font-family:Montserrat,sans-serif;
+      background: #000 url("assets/art/JDXCAPTAIN-Dino-Print.png") center/cover fixed;
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    section { padding:6rem 2rem; max-width:1100px; margin:auto; }
-    h2 {
-      font-family:BetrayalOfMind,Oswald,sans-serif;
-      text-align:center;
-      margin-bottom:2rem;
-      text-shadow:2px 0 var(--pink),-2px 0 var(--blue);
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--pink);
+      box-shadow: 0 4px 20px rgba(255, 47, 160, 0.3);
+      transition: all 0.3s ease;
     }
 
-    .hero { min-height:100vh; text-align:center; display:flex; flex-direction:column; justify-content:center; }
-    .glitch { font-family:BetrayalOfMind; font-size:clamp(3rem,8vw,6rem); }
-    .tagline { font-family:CMFont; color:var(--yellow); margin-top:1rem; }
+    nav.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: 0 2px 10px rgba(255, 47, 160, 0.2);
+    }
 
-    .btns { margin-top:3rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      color: var(--text);
+      text-decoration: none;
+      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--blue));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero { 
+      min-height: 100vh; 
+      text-align: center; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center;
+      padding-top: 200px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+      z-index: 0;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .glitch { 
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif; 
+      font-size: clamp(3rem, 8vw, 7rem);
+      margin-bottom: 1rem;
+      animation: glitch 3s infinite;
+      text-shadow: 
+        2px 0 var(--pink),
+        -2px 0 var(--blue),
+        0 2px var(--yellow);
+    }
+
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+    }
+
+    .hero-images {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      margin-top: -8rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero-image {
+        width: 225px;
+        height: 225px;
+      }
+    }
+
+    .tagline { 
+      font-family: 'CMFont', 'Montserrat', sans-serif; 
+      color: var(--yellow); 
+      margin-top: 1rem;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+      position: relative;
+      animation: phaseReality 7.5s ease-in-out infinite;
+      display: inline-block;
+      filter: blur(0px);
+    }
+
+    @keyframes phaseReality {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+        filter: blur(0px);
+        text-shadow: 
+          0 0 15px rgba(255, 230, 0, 0.8),
+          0 0 30px rgba(255, 230, 0, 0.4),
+          2px 0 rgba(255, 230, 0, 0.9),
+          -2px 0 rgba(255, 47, 160, 0.7);
+      }
+      25% {
+        opacity: 0.3;
+        transform: translate(1px, -1px) scale(0.98);
+        filter: blur(1px);
+        text-shadow: 
+          0 0 8px rgba(255, 230, 0, 0.3),
+          0 0 15px rgba(255, 230, 0, 0.15),
+          1px 0 rgba(255, 230, 0, 0.4),
+          -1px 0 rgba(0, 179, 255, 0.3);
+      }
+      50% {
+        opacity: 0.15;
+        transform: translate(-1px, 1px) scale(0.96);
+        filter: blur(2px);
+        text-shadow: 
+          0 0 5px rgba(255, 230, 0, 0.2),
+          0 0 10px rgba(255, 230, 0, 0.1),
+          0.5px 0 rgba(255, 230, 0, 0.25),
+          -0.5px 0 rgba(0, 179, 255, 0.2);
+      }
+      75% {
+        opacity: 0.3;
+        transform: translate(1px, 1px) scale(0.98);
+        filter: blur(1px);
+        text-shadow: 
+          0 0 8px rgba(255, 230, 0, 0.3),
+          0 0 15px rgba(255, 230, 0, 0.15),
+          1px 0 rgba(255, 230, 0, 0.4),
+          -1px 0 rgba(255, 47, 160, 0.3);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+        filter: blur(0px);
+        text-shadow: 
+          0 0 15px rgba(255, 230, 0, 0.8),
+          0 0 30px rgba(255, 230, 0, 0.4),
+          2px 0 rgba(255, 230, 0, 0.9),
+          -2px 0 rgba(255, 47, 160, 0.7);
+      }
+    }
+
+    .tagline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(255, 230, 0, 0.05) 2px,
+          rgba(255, 230, 0, 0.05) 4px
+        );
+      pointer-events: none;
+      animation: staticNoise 2s ease-in-out infinite;
+      mix-blend-mode: overlay;
+      opacity: 0;
+    }
+
+    @keyframes staticNoise {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 0.4; }
+    }
+
+    .btns { 
+      margin-top: 3rem; 
+      display: flex; 
+      gap: 1rem; 
+      justify-content: center; 
+      flex-wrap: wrap; 
+    }
+
+    .hero-images-bottom {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
     .btn {
-      border:2px solid var(--pink);
-      background:none;
-      color:white;
-      padding:.75rem 1.5rem;
-      cursor:pointer;
-      text-transform:uppercase;
+      border: 2px solid var(--pink);
+      background: rgba(255, 47, 160, 0.1);
+      color: white;
+      padding: 0.75rem 2rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    footer { text-align:center; opacity:.6; padding:3rem 1rem; }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 47, 160, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      background: rgba(255, 47, 160, 0.3);
+      border-color: var(--blue);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(255, 47, 160, 0.4);
+    }
+
+    /* Sections */
+    section { 
+      padding: 6rem 2rem; 
+      max-width: 1200px; 
+      margin: auto;
+      position: relative;
+    }
+
+    section:nth-child(even) {
+      background: var(--section-bg);
+      border-radius: 10px;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--pink), var(--blue));
+    }
+
+    /* Music Section */
+    #music {
+      text-align: center;
+    }
+
+    .music-content {
+      background: rgba(0, 0, 0, 0.9);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      margin-top: 2rem;
+    }
+
+    .music-content h2,
+    .socials-content h2,
+    .newsletter-content h2,
+    .epk-content h2 {
+      margin-bottom: 2rem;
+      margin-top: 0;
+    }
+
+    #music iframe {
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      max-width: 100%;
+      width: 100%;
+    }
+
+    /* Tour Section */
+    #tour {
+      text-align: center;
+    }
+
+    .tour-dates {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .tour-date {
+      background: rgba(255, 47, 160, 0.1);
+      border: 2px solid var(--pink);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .tour-date:hover {
+      background: rgba(255, 47, 160, 0.2);
+      transform: translateX(10px);
+      box-shadow: 0 5px 20px rgba(255, 47, 160, 0.3);
+    }
+
+    .tour-date strong {
+      color: var(--yellow);
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Socials Section */
+    #socials {
+      text-align: center;
+    }
+
+    .socials-content {
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      margin-top: 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .social-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border: 2px solid var(--blue);
+      border-radius: 8px;
+      background: rgba(0, 179, 255, 0.1);
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .social-links a:hover {
+      background: rgba(0, 179, 255, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0, 179, 255, 0.4);
+      color: var(--yellow);
+    }
+
+    /* Newsletter Section */
+    #newsletter {
+      text-align: center;
+      background: none !important;
+      border-radius: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .newsletter-content {
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      margin-top: 2rem;
+    }
+
+    .newsletter-form {
+      max-width: 500px;
+      margin: 2rem auto 0;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 250px;
+      padding: 1rem;
+      border: 2px solid var(--blue);
+      background: rgba(0, 0, 0, 0.5);
+      color: var(--text);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: var(--yellow);
+      box-shadow: 0 0 10px rgba(255, 230, 0, 0.3);
+    }
+
+    .newsletter-form input::placeholder {
+      color: rgba(234, 234, 240, 0.5);
+    }
+
+    .newsletter-form button {
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      border: none;
+      color: white;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 20px rgba(255, 47, 160, 0.5);
+    }
+
+    /* EPK Section */
+    #epk {
+      text-align: center;
+    }
+
+    .epk-content {
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      margin-top: 2rem;
+    }
+
+    .epk-buttons {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .epk-password-form {
+      margin: 2rem 0;
+    }
+
+    .epk-password-input {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 2px solid var(--pink);
+      border-radius: 5px;
+      background: rgba(0, 0, 0, 0.7);
+      color: var(--yellow);
+      font-family: 'Montserrat', sans-serif;
+      width: 250px;
+      max-width: 100%;
+      margin-right: 0.5rem;
+      text-align: center;
+    }
+
+    .epk-password-input::placeholder {
+      color: rgba(255, 230, 0, 0.5);
+    }
+
+    .epk-password-input:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 10px rgba(0, 179, 255, 0.5);
+    }
+
+    .epk-password-error {
+      color: var(--pink);
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .epk-password-error.show {
+      display: block;
+    }
+
+    .epk-download-btn {
+      display: none;
+    }
+
+    .epk-download-btn.show {
+      display: inline-block;
+    }
+
+    /* Merch Section */
+    #merch {
+      text-align: center;
+    }
+
+    .merch-placeholder {
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      padding: 4rem 2rem;
+      margin-top: 2rem;
+    }
+
+    .merch-placeholder p {
+      font-size: 1.2rem;
+      color: var(--yellow);
+    }
+
+    /* Footer */
+    footer { 
+      text-align: center; 
+      color: var(--blue);
+      opacity: 1; 
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid var(--blue);
+      border-radius: 10px;
+      padding: 3rem 1rem;
+      margin-top: 4rem;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1200px;
+      text-shadow: 0 0 10px rgba(0, 179, 255, 0.5);
+    }
+
+    footer p {
+      color: var(--blue);
+      text-shadow: 0 0 10px rgba(0, 179, 255, 0.5);
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: var(--pink);
+      transition: all 0.3s ease;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        border-top: 2px solid var(--pink);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 47, 160, 0.2);
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form input {
+        min-width: 100%;
+      }
+
+      .epk-password-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .epk-password-input {
+        width: 100%;
+        max-width: 300px;
+        margin-right: 0;
+      }
+
+      .epk-password-form .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .epk-buttons {
+        flex-direction: column;
+      }
+
+      .epk-buttons .btn {
+        width: 100%;
+      }
+    }
+
+    /* Loading Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      animation: fadeInUp 0.6s ease-out;
+    }
   </style>
 </head>
 
 <body>
 
-<section class="hero">
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="logo">JDX:CAPTAIN</a>
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#tour">Tour</a></li>
+      <li><a href="#socials">Socials</a></li>
+      <li><a href="#epk">EPK</a></li>
+      <li><a href="#merch">Merch</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-images">
+    <img src="assets/CAPTAIN/Media (27).jpeg" alt="JDX:CAPTAIN" class="hero-image">
+    <img src="assets/CAPTAIN/Media (48).jpeg" alt="JDX:CAPTAIN" class="hero-image">
+    <img src="assets/CAPTAIN/captain2.jpeg" alt="JDX:CAPTAIN" class="hero-image">
+  </div>
   <h1 id="heroTitle" class="glitch"></h1>
   <p id="heroTagline" class="tagline"></p>
 
@@ -72,129 +781,274 @@
     <a class="btn" href="#epk">EPK</a>
     <a class="btn" href="#merch">Merch</a>
   </div>
+  <div class="hero-images-bottom">
+    <img src="assets/CAPTAIN/Media (28).jpeg" alt="JDX:CAPTAIN" class="hero-image">
+    <img src="assets/CAPTAIN/captain.jpeg" alt="JDX:CAPTAIN" class="hero-image">
+    <img src="assets/CAPTAIN/Media (30).jpeg" alt="JDX:CAPTAIN" class="hero-image">
+  </div>
 </section>
 
 <section id="music">
-  <h2>Music</h2>
-  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1xkXrS20mlIQ6KkzrTzm9d" width="100%" height="352"></iframe>
+  <div class="music-content">
+    <h2>Music</h2>
+    <iframe 
+      style="border-radius:12px" 
+      src="https://open.spotify.com/embed/artist/1xkXrS20mlIQ6KkzrTzm9d?utm_source=generator&theme=0" 
+      width="100%" 
+      height="352" 
+      frameBorder="0" 
+      allowfullscreen="" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </div>
 </section>
 
 <section id="tour">
-  <h2>Tour</h2>
-  <p style="text-align:center">
-    Jun 14 2026 – The Observatory, Santa Ana, CA<br>
-    Jul 02 2026 – Chain Reaction, Anaheim, CA<br>
-    Jul 18 2026 – The Glass House, Pomona, CA<br>
-    Aug 06 2026 – Soma Side Stage, San Diego, CA<br>
-    Aug 22 2026 – Canyon Club, Agoura Hills, CA
-  </p>
+  <h2>Tour Dates</h2>
+  <div class="tour-dates">
+    <div class="tour-date">
+      <strong>Jun 14, 2026</strong>
+      <div>The Observatory</div>
+      <div style="color: var(--blue); margin-top: 0.5rem;">Santa Ana, CA</div>
+    </div>
+    <div class="tour-date">
+      <strong>Jul 02, 2026</strong>
+      <div>Chain Reaction</div>
+      <div style="color: var(--blue); margin-top: 0.5rem;">Anaheim, CA</div>
+    </div>
+    <div class="tour-date">
+      <strong>Jul 18, 2026</strong>
+      <div>The Glass House</div>
+      <div style="color: var(--blue); margin-top: 0.5rem;">Pomona, CA</div>
+    </div>
+    <div class="tour-date">
+      <strong>Aug 06, 2026</strong>
+      <div>Soma Side Stage</div>
+      <div style="color: var(--blue); margin-top: 0.5rem;">San Diego, CA</div>
+    </div>
+    <div class="tour-date">
+      <strong>Aug 22, 2026</strong>
+      <div>Canyon Club</div>
+      <div style="color: var(--blue); margin-top: 0.5rem;">Agoura Hills, CA</div>
+    </div>
+  </div>
 </section>
 
 <section id="socials">
-  <h2>Socials</h2>
-  <p style="text-align:center">
-    <a href="https://instagram.com/jdxcaptain">Instagram</a> |
-    <a href="https://tiktok.com/@jdxcaptain">TikTok</a> |
-    <a href="https://facebook.com/jdxcaptain">Facebook</a> |
-    <a href="https://x.com/jdxcaptain">X</a>
-  </p>
+  <div class="socials-content">
+    <h2>Follow & Connect</h2>
+    <div class="social-links">
+      <a href="https://instagram.com/jdxcaptain" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://tiktok.com/@jdxcaptain" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://facebook.com/jdxcaptain" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://x.com/jdxcaptain" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+    </div>
+  </div>
+</section>
+
+<section id="newsletter">
+  <div class="newsletter-content">
+    <h2>Stay Updated</h2>
+    <p style="margin-bottom: 1rem; font-size: 1.1rem;">Sign up to receive news, tour dates, and exclusive updates!</p>
+    <form class="newsletter-form" id="newsletterForm" onsubmit="handleNewsletterSubmit(event)">
+      <input 
+        type="email" 
+        placeholder="Enter your email address" 
+        required
+        id="emailInput"
+      />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">No spam - just updates directly from JDX:CAPTAIN</p>
+  </div>
 </section>
 
 <section id="epk">
-  <h2>Press / EPK</h2>
-  <div class="btns">
-    <button class="btn" onclick="generateFullEPK()">Download Full EPK</button>
-    <button class="btn" onclick="generateVenueEPK()">One-Page Venue EPK</button>
+  <div class="epk-content">
+    <h2>Press / EPK</h2>
+    <p style="margin-bottom: 1rem;">Download electronic press kit materials for venues, press, and booking</p>
+    <div class="epk-password-form">
+      <input type="password" id="epkPassword" class="epk-password-input" placeholder="EPK PASSWORD">
+      <button type="button" class="btn" onclick="checkEPKPassword()">Submit</button>
+      <p class="epk-password-error" id="epkPasswordError">Incorrect password. Please try again.</p>
+    </div>
+    <div class="epk-buttons">
+      <a href="https://raw.githubusercontent.com/jdharris981/jdxcaptain-site/main/assets/EPK/JDX_CAPTAIN_EPK.pdf" download="JDX_CAPTAIN_EPK.pdf" class="btn epk-download-btn" id="epkDownloadBtn">Download Full EPK</a>
+    </div>
   </div>
 </section>
 
 <section id="merch">
   <h2>Merch</h2>
-  <p style="text-align:center">Store coming soon.</p>
+  <div class="merch-placeholder">
+    <p>🛍️ Store coming soon!</p>
+    <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.8;">Check back soon for exclusive JDX:CAPTAIN merchandise</p>
+  </div>
 </section>
 
-<footer>© 2026 JDX:CAPTAIN</footer>
+<footer>
+  <p>© 2026 JDX:CAPTAIN. All rights reserved.</p>
+  <p style="margin-top: 0.5rem; font-size: 0.9rem;">Boundary-pushing genre fusion • High-energy performances</p>
+  <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.6;">
+    <a href="https://github.com/jdharris981/jdxcaptain-site" target="_blank" rel="noopener noreferrer" style="color: var(--blue); text-decoration: none;">View on GitHub</a>
+  </p>
+</footer>
 
 <script>
-const CMS = { heroTitle:"JDX:CAPTAIN", tagline:"It’s All About the :" };
-heroTitle.textContent = CMS.heroTitle;
-heroTagline.textContent = CMS.tagline;
+// CMS Data
+const CMS = { 
+  heroTitle: "JDX:CAPTAIN", 
+  tagline: "It's All About The... :" 
+};
 
+// Initialize hero content
+document.getElementById('heroTitle').textContent = CMS.heroTitle;
+document.getElementById('heroTagline').textContent = CMS.tagline;
+
+// Constants
 const SPOTIFY = "https://open.spotify.com/artist/1xkXrS20mlIQ6KkzrTzm9d";
 const YOUTUBE = "https://youtube.com/channel/UCRjzYpg-kxMoKvy2Fe23EqQ";
+const GITHUB = "https://github.com/jdharris981/jdxcaptain-site";
 
-function generateFullEPK() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
-  let y = 15;
+// Navigation scroll effect
+const navbar = document.getElementById('navbar');
+let lastScroll = 0;
 
-  doc.setFontSize(18);
-  doc.text("JDX:CAPTAIN — Electronic Press Kit",10,y);
-  y+=10;
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  
+  if (currentScroll > 100) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+  
+  lastScroll = currentScroll;
+});
 
-  doc.setFontSize(11);
-  doc.text("Listen:",10,y);
-  doc.textWithLink("Spotify",25,y,{url:SPOTIFY});
-  doc.textWithLink("YouTube",45,y,{url:YOUTUBE});
-  y+=8;
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
 
-  doc.text(
-`Boundary-pushing solo artist blending hardcore emo, metal, pop punk,
-hip hop, jazz, salsa, and EDM.
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  
+  // Animate hamburger
+  const spans = menuToggle.querySelectorAll('span');
+  if (navLinks.classList.contains('active')) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+  } else {
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
+  }
+});
 
-Known for massive breakdowns, genre fusion,
-and emotionally charged performances.
-
-Notable Venues:
-• The Roxy
-• Whisky a Go Go
-• Warped Tour`,10,y);
-
-  doc.addPage();
-  doc.text("Visuals",10,15);
-
-  const imgs=[
-    "assets/CAPTAIN/captain.jpeg",
-    "assets/CAPTAIN/captain2.jpeg",
-    "assets/CAPTAIN/Media (29).jpeg",
-    "assets/CAPTAIN/CanyonClub6.jpeg"
-  ];
-
-  imgs.forEach(async (src,i)=>{
-    const b=await fetch(src).then(r=>r.blob());
-    const d=await new Promise(r=>{let f=new FileReader();f.onload=()=>r(f.result);f.readAsDataURL(b);});
-    doc.addImage(d,"JPEG",10,20+i*60,180,50);
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    const spans = menuToggle.querySelectorAll('span');
+    spans[0].style.transform = 'none';
+    spans[1].style.opacity = '1';
+    spans[2].style.transform = 'none';
   });
+});
 
-  doc.save("JDXCAPTAIN_EPK.pdf");
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offsetTop = target.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
+// Newsletter form handler
+function handleNewsletterSubmit(event) {
+  event.preventDefault();
+  const email = document.getElementById('emailInput').value;
+  
+  // Here you would typically send this to your backend/email service
+  // For now, we'll just show a confirmation
+  alert(`Thanks for subscribing! We'll send updates to ${email}`);
+  document.getElementById('newsletterForm').reset();
+  
+  // You can integrate with services like:
+  // - Mailchimp
+  // - ConvertKit
+  // - Your own backend API
 }
 
-function generateVenueEPK() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
+// EPK Password Protection
+const EPK_PASSWORD = 'JDX2024'; // Change this to your desired password
 
-  doc.setFontSize(20);
-  doc.text("JDX:CAPTAIN",10,20);
-  doc.setFontSize(12);
-  doc.text("Solo Artist | High-Energy Genre Fusion",10,30);
+function checkEPKPassword() {
+  const passwordInput = document.getElementById('epkPassword');
+  const errorMessage = document.getElementById('epkPasswordError');
+  const downloadBtn = document.getElementById('epkDownloadBtn');
+  const password = passwordInput.value;
 
-  doc.text("Listen:",10,45);
-  doc.textWithLink("Spotify",25,45,{url:SPOTIFY});
-  doc.textWithLink("YouTube",45,45,{url:YOUTUBE});
-
-  doc.text(
-`Live Experience:
-The Roxy • Whisky a Go Go • Warped Tour
-
-Style:
-Hardcore emo, metal, pop punk,
-hip hop & EDM fusion
-
-Available for:
-Clubs • Festivals • Support Slots`,10,65);
-
-  doc.save("JDXCAPTAIN_Venue_EPK.pdf");
+  if (password === EPK_PASSWORD) {
+    // Correct password - show download button
+    downloadBtn.classList.add('show');
+    errorMessage.classList.remove('show');
+    passwordInput.value = '';
+    passwordInput.style.borderColor = 'var(--blue)';
+    // Scroll to download button
+    downloadBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } else {
+    // Incorrect password - show error
+    errorMessage.classList.add('show');
+    passwordInput.style.borderColor = 'var(--pink)';
+    passwordInput.value = '';
+    passwordInput.focus();
+  }
 }
+
+// Allow Enter key to submit password
+document.addEventListener('DOMContentLoaded', function() {
+  const passwordInput = document.getElementById('epkPassword');
+  if (passwordInput) {
+    passwordInput.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        checkEPKPassword();
+      }
+    });
+  }
+});
+
+// Intersection Observer for fade-in animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+// Observe all sections
+document.querySelectorAll('section').forEach(section => {
+  section.style.opacity = '0';
+  section.style.transform = 'translateY(30px)';
+  section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+  observer.observe(section);
+});
 </script>
 
 </body>
