@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>StarShip Studios - Professional Recording Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StarShip Studios - Professional recording studio offering state-of-the-art facilities for music production, mixing, mastering, and more.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: "BetrayalOfMind";
+      src: url("assets/fonts/BetrayalOfMind-dBOZ.ttf");
+    }
+    @font-face {
+      font-family: "CMFont";
+      src: url("assets/fonts/CmFont-pgggZ.ttf");
+    }
+
+    :root {
+      --pink: #ff2fa0;
+      --blue: #00b3ff;
+      --yellow: #ffe600;
+      --text: #eaeaf0;
+      --dark-bg: #0a0a0a;
+      --section-bg: rgba(10, 10, 10, 0.85);
+    }
+
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      scroll-behavior: smooth; 
+    }
+
+    body {
+      background: #000 url("assets/sss/SSS Logo 13.jpeg") center/cover fixed;
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--pink);
+      box-shadow: 0 4px 20px rgba(255, 47, 160, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: 0 2px 10px rgba(255, 47, 160, 0.2);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      color: var(--text);
+      text-decoration: none;
+      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--blue));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .studio-hero {
+      min-height: 100vh;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-top: 120px;
+      position: relative;
+    }
+
+    .studio-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+      z-index: 0;
+    }
+
+    .studio-hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .studio-hero h1 {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin-bottom: 1rem;
+      text-shadow: 
+        2px 0 var(--pink),
+        -2px 0 var(--blue),
+        0 2px var(--yellow);
+      animation: glitch 3s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+    }
+
+    .studio-hero p {
+      font-family: 'CMFont', 'Montserrat', sans-serif;
+      color: var(--yellow);
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+      margin-bottom: 2rem;
+    }
+
+    .studio-hero-images {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+
+    .studio-hero-image {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border: 2px solid var(--pink);
+      box-shadow: 0 0 20px rgba(255, 47, 160, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .studio-hero-image:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .studio-hero-image {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-content {
+      background: var(--section-bg);
+      backdrop-filter: blur(10px);
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .section-content h2 {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 2rem;
+      text-align: center;
+      color: var(--yellow);
+      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
+    }
+
+    .section-content h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin: 2rem 0 1rem;
+      color: var(--blue);
+    }
+
+    .section-content p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* Studio Grid */
+    .studio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .studio-card {
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid var(--blue);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .studio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 179, 255, 0.3);
+    }
+
+    .studio-card h3 {
+      color: var(--yellow);
+      margin-bottom: 1rem;
+    }
+
+    .studio-card .price {
+      font-size: 1.5rem;
+      color: var(--pink);
+      font-weight: 700;
+      margin: 1rem 0;
+    }
+
+    /* Image Gallery */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .gallery-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border: 2px solid var(--pink);
+      border-radius: 5px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 20px rgba(255, 47, 160, 0.5);
+    }
+
+    /* Services List */
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .service-item {
+      background: rgba(0, 0, 0, 0.4);
+      border-left: 4px solid var(--blue);
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .service-item:hover {
+      border-left-color: var(--pink);
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .service-item h4 {
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      margin: 0.5rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(255, 47, 160, 0.5);
+      border-color: var(--yellow);
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.95);
+      border-top: 2px solid var(--blue);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+      opacity: 0.8;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.8rem;
+      }
+
+      .section-content {
+        padding: 2rem 1.5rem;
+      }
+
+      .studio-grid,
+      .image-gallery,
+      .services-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">JDX:CAPTAIN</a>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#music">Music</a></li>
+        <li><a href="index.html#socials">Socials</a></li>
+        <li><a href="index.html#epk">EPK</a></li>
+        <li><a href="index.html#games">Games</a></li>
+        <li><a href="index.html#tour">Tour</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="ppf.html">Fitness</a></li>
+        <li><a href="sss.html">Studio</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="studio-hero">
+    <h1>StarShip Studios</h1>
+    <p>TRACKING - MIXING -MASTERING  - ENGAGE!</p>
+    <div class="studio-hero-images">
+      <img src="assets/sss/SSS.jpeg" alt="StarShip Studios" class="studio-hero-image">
+      <img src="assets/sss/SSS GTRS.jpeg" alt="StarShip Studios Equipment" class="studio-hero-image">
+      <img src="assets/sss/SSS GTR Headstock.jpeg" alt="StarShip Studios" class="studio-hero-image">
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-content">
+      <h2>Welcome to StarShip Studios</h2>
+      <p>Your premier destination for professional music production, recording, mixing, and mastering. Located in the heart of the music scene, StarShip Studios offers state-of-the-art facilities equipped with industry-standard gear to bring your creative vision to life.</p>
+      <p>Whether you're an independent artist, a band, or a producer, our professional recording studios provide the perfect environment to create exceptional music. We offer flexible booking options, from hourly sessions to extended lockouts, ensuring we can accommodate projects of any size.</p>
+    </div>
+  </section>
+
+  <section id="studios">
+    <div class="section-content">
+      <h2>Our Studios</h2>
+      <div class="studio-grid">
+        <div class="studio-card">
+          <h3>Main Studio</h3>
+          <p>Our flagship recording space featuring premium equipment and acoustically tuned rooms for optimal sound quality.</p>
+          <div class="price">Starting at $60/hr</div>
+          <p style="font-size: 0.9rem; opacity: 0.8;">Engineer included</p>
+        </div>
+        <div class="studio-card">
+          <h3>Production Suite</h3>
+          <p>Perfect for mixing, mastering, and post-production work with high-end analog gear and digital tools.</p>
+          <div class="price">Starting at $80/hr</div>
+          <p style="font-size: 0.9rem; opacity: 0.8;">With engineer</p>
+        </div>
+        <div class="studio-card">
+          <h3>Vocal Booth</h3>
+          <p>Dedicated vocal recording space with professional microphones and isolation for pristine vocal tracks.</p>
+          <div class="price">Starting at $50/hr</div>
+          <p style="font-size: 0.9rem; opacity: 0.8;">Equipment included</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="section-content">
+      <h2>Services</h2>
+      <div class="services-list">
+        <div class="service-item">
+          <h4>Music Recording</h4>
+          <p>Full-band and solo artist recording with professional equipment and experienced engineers.</p>
+        </div>
+        <div class="service-item">
+          <h4>Mixing Services</h4>
+          <p>Professional mixing using analog and digital tools to achieve the perfect balance and sound.</p>
+        </div>
+        <div class="service-item">
+          <h4>Mastering Services</h4>
+          <p>Final polish for your tracks with industry-standard mastering techniques and equipment.</p>
+        </div>
+        <div class="service-item">
+          <h4>Voice Over Recording</h4>
+          <p>Professional voice recording for commercials, audiobooks, podcasts, and more.</p>
+        </div>
+        <div class="service-item">
+          <h4>Podcast Production</h4>
+          <p>Complete podcast production services from recording to post-production and editing.</p>
+        </div>
+        <div class="service-item">
+          <h4>ADR Recording</h4>
+          <p>Automated Dialogue Replacement for film, TV, and video game projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="equipment">
+    <div class="section-content">
+      <h2>Equipment & Gear</h2>
+      <p>StarShip Studios is equipped with industry-standard, state-of-the-art recording gear to ensure the highest quality results for every project.</p>
+      <h3>Microphones</h3>
+      <p>Neumann U87, Sony C800G, Telefunken Elam 251, and more premium microphones available for your sessions.</p>
+      <h3>Outboard Gear</h3>
+      <p>Tube-Tech CL-1B compressor, Neve preamps, and a full range of analog processing equipment.</p>
+      <h3>Monitoring</h3>
+      <p>Augspurger Speaker System and professional studio monitors for accurate mixing and mastering.</p>
+      <h3>Digital Tools</h3>
+      <p>Latest Pro Tools, Logic Pro, and Ableton Live setups with extensive plugin libraries.</p>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="section-content">
+      <h2>Studio Gallery</h2>
+      <div class="image-gallery">
+        <img src="assets/sss/SSS Logo 15.jpeg" alt="StarShip Studios" class="gallery-image">
+        <img src="assets/sss/SSS Logo 1.jpg" alt="StarShip Studios" class="gallery-image">
+        <img src="assets/sss/SSS Logo 12.jpeg" alt="StarShip Studios" class="gallery-image">
+        <img src="assets/sss/SSS Logo 4.jpg" alt="StarShip Studios" class="gallery-image">
+        <img src="assets/sss/SSS Logo TOS.jpeg" alt="StarShip Studios" class="gallery-image">
+        <img src="assets/sss/SSS Logo 7.jpg" alt="StarShip Studios" class="gallery-image">
+      </div>
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="section-content">
+      <h2>Book Your Session</h2>
+      <p>Ready to start your next project? Contact StarShip Studios to book your session or get a personalized quote.</p>
+      <p>We offer flexible booking options including hourly rates, daily lockouts, and extended monthly rentals. All sessions include access to our professional equipment and can include an engineer upon request.</p>
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="mailto:starshiprecordingstudios@gmail.com" class="btn">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 StarShip Studios - All Rights Reserved</p>
+    <p>TRACKING - MIXING -MASTERING  - ENGAGE!</p>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

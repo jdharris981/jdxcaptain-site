@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quick Preview Instructions</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Monaco', 'Courier New', monospace;
+    }
+    .method {
+      background: #f9f9f9;
+      border-left: 4px solid #007acc;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    h2 {
+      color: #007acc;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 How to Preview Your Site</h1>
+  
+  <div class="method">
+    <h2>Method 1: VS Code Live Server (Easiest - No Installation Needed)</h2>
+    <ol>
+      <li>Open VS Code (or install it from <a href="https://code.visualstudio.com">code.visualstudio.com</a>)</li>
+      <li>Install the "Live Server" extension (search for it in Extensions)</li>
+      <li>Open this folder in VS Code</li>
+      <li>Right-click on <code>index.html</code></li>
+      <li>Select "Open with Live Server"</li>
+      <li>Your browser will open automatically!</li>
+    </ol>
+  </div>
+
+  <div class="method">
+    <h2>Method 2: Install Xcode Command Line Tools (One-Time Setup)</h2>
+    <p>If you want to use Python, you'll need to install developer tools first:</p>
+    <ol>
+      <li>Run this command in Terminal:
+        <br><code>xcode-select --install</code>
+      </li>
+      <li>Follow the installation dialog (this downloads ~500MB)</li>
+      <li>After installation, try the Python server again:
+        <br><code>python3 -m http.server 8000</code>
+      </li>
+    </ol>
+  </div>
+
+  <div class="method">
+    <h2>Method 3: Use Node.js (If You Have It)</h2>
+    <p>If you have Node.js installed:</p>
+    <ol>
+      <li>Install http-server: <code>npm install -g http-server</code></li>
+      <li>Run: <code>http-server -p 8000</code></li>
+      <li>Open: <code>http://localhost:8000</code></li>
+    </ol>
+  </div>
+
+  <div class="method">
+    <h2>Method 4: Direct File Open (Limited - For Quick Preview)</h2>
+    <p><strong>Note:</strong> This may have issues with some assets, but works for basic preview:</p>
+    <ol>
+      <li>Right-click on <code>index.html</code></li>
+      <li>Select "Open With" → Your browser</li>
+      <li>Some features may not work perfectly (fonts, some assets)</li>
+    </ol>
+  </div>
+
+  <hr>
+  <p><strong>Recommended:</strong> Use Method 1 (VS Code Live Server) - it's the easiest and works perfectly!</p>
+</body>
+</html>

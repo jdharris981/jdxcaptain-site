@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>POPPUNK FITNESS - More Than Fitness, It's A Way of Life</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="POPPUNK FITNESS - Where fitness meets the poppunk scene. More than a brand, it's a lifestyle.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: "BetrayalOfMind";
+      src: url("assets/fonts/BetrayalOfMind-dBOZ.ttf");
+    }
+    @font-face {
+      font-family: "CMFont";
+      src: url("assets/fonts/CmFont-pgggZ.ttf");
+    }
+
+    :root {
+      --pink: #ff2fa0;
+      --blue: #00b3ff;
+      --yellow: #ffe600;
+      --text: #eaeaf0;
+      --dark-bg: #0a0a0a;
+      --section-bg: rgba(10, 10, 10, 0.85);
+    }
+
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      scroll-behavior: smooth; 
+    }
+
+    body {
+      background: #000 url("assets/ppf/JDX Power STANCE.png") center 25%/cover fixed;
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--pink);
+      box-shadow: 0 4px 20px rgba(255, 47, 160, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 0.5rem 0;
+      box-shadow: 0 2px 10px rgba(255, 47, 160, 0.2);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      color: var(--text);
+      text-decoration: none;
+      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--blue));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .ppf-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      padding-top: 150px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ppf-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+      z-index: 0;
+    }
+
+    .ppf-hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ppf-hero-images {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+
+    .ppf-hero-image {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border: 2px solid var(--pink);
+      box-shadow: 0 0 20px rgba(255, 47, 160, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .ppf-hero-image:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .ppf-hero-image {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    .ppf-hero h1 {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin-bottom: 1rem;
+      text-shadow: 
+        2px 0 var(--pink),
+        -2px 0 var(--blue),
+        0 2px var(--yellow);
+      animation: glitch 3s infinite;
+    }
+
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+    }
+
+    .ppf-hero p {
+      font-family: 'CMFont', 'Montserrat', sans-serif;
+      color: var(--yellow);
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+      margin-bottom: 2rem;
+      max-width: 800px;
+    }
+
+    /* Banner Section */
+    .banner-section {
+      padding: 1rem 2rem 4rem 2rem;
+      text-align: center;
+    }
+
+    .banner-content {
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .banner-content h2 {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+      color: var(--yellow);
+      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
+    }
+
+    .banner-content p {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Category Section */
+    .category-section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .category-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .category-header h2 {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--yellow);
+      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
+      margin-bottom: 1rem;
+    }
+
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .category-tab {
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid var(--blue);
+      color: var(--text);
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+    }
+
+    .category-tab.active,
+    .category-tab:hover {
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      border-color: var(--pink);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(255, 47, 160, 0.5);
+    }
+
+    /* Image Grid */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .image-card {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .image-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 47, 160, 0.5);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+      padding: 2rem;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .image-card:hover .image-card-overlay {
+      transform: translateY(0);
+    }
+
+    .image-card-overlay h3 {
+      font-family: 'Oswald', sans-serif;
+      color: var(--yellow);
+      margin-bottom: 0.5rem;
+    }
+
+    .image-card-overlay p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* Lifestyle Section */
+    .lifestyle-section {
+      padding: 4rem 2rem;
+      background: var(--section-bg);
+      backdrop-filter: blur(10px);
+      border-top: 2px solid var(--pink);
+      border-bottom: 2px solid var(--blue);
+    }
+
+    .lifestyle-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+
+    .lifestyle-card {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid var(--blue);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .lifestyle-card:hover {
+      border-color: var(--pink);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 179, 255, 0.3);
+    }
+
+    .lifestyle-card h3 {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--yellow);
+      margin-bottom: 1rem;
+      text-shadow: 1px 0 var(--pink), -1px 0 var(--blue);
+    }
+
+    .lifestyle-card p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* Training Types Section */
+    .training-section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .training-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .training-header h2 {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--yellow);
+      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
+      margin-bottom: 1rem;
+    }
+
+    .training-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .training-card {
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid var(--blue);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .training-card:hover {
+      border-color: var(--pink);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 47, 160, 0.3);
+    }
+
+    .training-card h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+    }
+
+    .training-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Featured Section */
+    .featured-section {
+      padding: 4rem 2rem;
+    }
+
+    .featured-content {
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .featured-content h2 {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--yellow);
+      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
+      margin-bottom: 2rem;
+    }
+
+    .featured-image {
+      max-width: 100%;
+      height: auto;
+      border: 3px solid var(--pink);
+      box-shadow: 0 0 30px rgba(255, 47, 160, 0.5);
+      margin: 2rem 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      margin: 0.5rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(255, 47, 160, 0.5);
+      border-color: var(--yellow);
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.95);
+      border-top: 2px solid var(--blue);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+      opacity: 0.8;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.8rem;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lifestyle-content,
+      .training-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">JDX:CAPTAIN</a>
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#music">Music</a></li>
+        <li><a href="index.html#socials">Socials</a></li>
+        <li><a href="index.html#epk">EPK</a></li>
+        <li><a href="index.html#games">Games</a></li>
+        <li><a href="index.html#tour">Tour</a></li>
+        <li><a href="merch.html">Merch</a></li>
+        <li><a href="ppf.html">Fitness</a></li>
+        <li><a href="sss.html">Studio</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="ppf-hero">
+    <h1>POPPUNK FITNESS</h1>
+    <p>More Than Fitness. It's A Way of Life.</p>
+    <div class="ppf-hero-images">
+      <img src="assets/ppf/054.jpg" alt="POPPUNK FITNESS" class="ppf-hero-image">
+      <img src="assets/ppf/03.jpg" alt="POPPUNK FITNESS" class="ppf-hero-image">
+      <img src="assets/ppf/056.jpg" alt="POPPUNK FITNESS" class="ppf-hero-image">
+    </div>
+
+  <section class="banner-section">
+    <div class="banner-content">
+      <h2>Welcome to the Scene</h2>
+      <p>POPPUNK FITNESS isn't just about lifting weights or running miles. It's about the energy, the community, the music, and the lifestyle that defines the poppunk scene. We're building a movement where fitness meets the mosh pit, where dedication meets the stage, and where every rep is a step toward becoming your best self.</p>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <div class="category-header">
+      <h2>Explore the Collection</h2>
+      <div class="category-tabs">
+        <button class="category-tab active" data-category="all">All</button>
+        <button class="category-tab" data-category="apparel">Apparel</button>
+        <button class="category-tab" data-category="lifestyle">Lifestyle</button>
+        <button class="category-tab" data-category="community">Community</button>
+      </div>
+    </div>
+
+    <div class="image-grid" id="imageGrid">
+      <div class="image-card" data-category="apparel">
+        <img src="assets/ppf/PPF blue1.jpg" alt="POPPUNK FITNESS Apparel">
+        <div class="image-card-overlay">
+          <h3>Performance Apparel</h3>
+          <p>Built for the gym, styled for the scene</p>
+        </div>
+      </div>
+      <div class="image-card" data-category="apparel">
+        <img src="assets/ppf/PPF pink 1.jpg" alt="POPPUNK FITNESS Apparel">
+        <div class="image-card-overlay">
+          <h3>Scene Style</h3>
+          <p>Where fitness meets fashion</p>
+        </div>
+      </div>
+      <div class="image-card" data-category="apparel">
+        <img src="assets/ppf/PPF blue1.jpg" alt="POPPUNK FITNESS Apparel">
+        <div class="image-card-overlay">
+          <h3>Rest Day Uniform</h3>
+          <p>When You Don't Want To Go Outside</p>
+        </div>
+      </div>
+      <div class="image-card" data-category="lifestyle">
+        <img src="assets/ppf/ppf pro pic.png" alt="POPPUNK FITNESS Lifestyle">
+        <div class="image-card-overlay">
+          <h3>Lifestyle</h3>
+          <p>More than a brand, it's a movement</p>
+        </div>
+      </div>
+      <div class="image-card" data-category="community">
+        <img src="assets/ppf/ppf white outline.png" alt="POPPUNK FITNESS Logo">
+        <div class="image-card-overlay">
+          <h3>The Movement</h3>
+          <p>Fitness. Music. Community. Life.</p>
+        </div>
+      </div>
+      <div class="image-card" data-category="community">
+        <img src="assets/ppf/PPF-Logos-2.png" alt="POPPUNK FITNESS">
+        <div class="image-card-overlay">
+          <h3>Join the Community</h3>
+          <p>Be part of something bigger</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lifestyle-section">
+    <div class="lifestyle-content">
+      <div class="lifestyle-card">
+        <h3>🏋️ Built in the Gym</h3>
+        <p>We make fitness gear. The best fitness gear. Built from the squat rack, not the running track. Designed for those who train hard and live harder.</p>
+      </div>
+      <div class="lifestyle-card">
+        <h3>🎸 Scene Culture</h3>
+        <p>POPPUNK FITNESS is more than workout clothes. It's a celebration of the poppunk scene - the music, the shows, the community, and the energy that drives us all.</p>
+      </div>
+      <div class="lifestyle-card">
+        <h3>🔥 The Community</h3>
+        <p>Join a movement of people who train like athletes and live like rockstars. This is your crew, your scene, your way of life.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="training-section">
+    <div class="training-header">
+      <h2>How Do You Train?</h2>
+    </div>
+    <div class="training-grid">
+      <div class="training-card">
+        <h3>LIFTING</h3>
+        <p>Heavy weights, heavy riffs. Build strength, build character.</p>
+      </div>
+      <div class="training-card">
+        <h3>HIIT</h3>
+        <p>High intensity, high energy. Train like you're on stage.</p>
+      </div>
+      <div class="training-card">
+        <h3>RUNNING</h3>
+        <p>Cardio that keeps you going. Endurance for the long haul.</p>
+      </div>
+      <div class="training-card">
+        <h3>REST DAY</h3>
+        <p>Recovery is part of the process. Rest hard, train harder.</p>
+      </div>
+      <div class="training-card">
+        <h3>PIZZA DAY</h3>
+        <p>Fuel your body, feed your soul. Every day is a celebration.</p>
+      </div>
+      <div class="training-card">
+        <h3>MUSIC EVERYDAY</h3>
+        <p>Soundtrack your life. Music is the ultimate training partner.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="featured-content">
+      <h2>POPULAR RIGHT NOW</h2>
+      <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+        From the gym to the show, POPPUNK FITNESS is with you every step of the way. 
+        Functional gear that performs when it matters, styled for the scene you love.
+      </p>
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="merch.html" class="btn">Shop the Collection</a>
+        <a href="index.html#socials" class="btn">Join the Community</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 POPPUNK FITNESS - All Rights Reserved</p>
+    <p>More Than Fitness. It's A Way of Life.</p>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Category filtering
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const imageCards = document.querySelectorAll('.image-card');
+
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active class from all tabs
+        categoryTabs.forEach(t => t.classList.remove('active'));
+        // Add active class to clicked tab
+        tab.classList.add('active');
+
+        const category = tab.getAttribute('data-category');
+
+        // Filter images
+        imageCards.forEach(card => {
+          if (category === 'all' || card.getAttribute('data-category') === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
