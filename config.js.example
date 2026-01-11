@@ -1,0 +1,16 @@
+// Printful API Configuration
+// Copy this file to config.js and add your actual API key
+// DO NOT commit config.js to git (it's in .gitignore)
+
+const PRINTFUL_CONFIG = {
+  // Get your API key from: https://www.printful.com/dashboard/api
+  // Go to Settings > API > Generate API key
+  API_KEY: 'YOUR_PRINTFUL_API_KEY_HERE',
+  
+  // Your Printful Store ID (optional, but helpful)
+  // Find it in your Printful dashboard under Stores
+  STORE_ID: null, // e.g., 123456
+  
+  // API endpoint (usually doesn't need to change)
+  API_BASE_URL: 'https://api.printful.com'
+};
