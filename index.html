@@ -129,7 +129,7 @@
       display: flex; 
       flex-direction: column; 
       justify-content: center;
-      padding-top: 200px;
+      padding-top: 240px;
       position: relative;
     }
 
@@ -173,7 +173,7 @@
       justify-content: center;
       gap: 1rem;
       margin-bottom: 2rem;
-      margin-top: -8rem;
+      margin-top: -7rem;
       flex-wrap: wrap;
     }
 
@@ -685,24 +685,17 @@
     }
 
     /* Footer */
-    footer { 
-      text-align: center; 
-      color: var(--blue);
-      opacity: 1; 
-      background: rgba(0, 0, 0, 0.9);
-      border: 2px solid var(--blue);
-      border-radius: 10px;
-      padding: 3rem 1rem;
+    footer {
+      background: rgba(0, 0, 0, 0.95);
+      border-top: 2px solid var(--blue);
+      padding: 2rem;
+      text-align: center;
       margin-top: 4rem;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 1200px;
-      text-shadow: 0 0 10px rgba(0, 179, 255, 0.5);
     }
 
     footer p {
-      color: var(--blue);
-      text-shadow: 0 0 10px rgba(0, 179, 255, 0.5);
+      margin: 0.5rem 0;
+      opacity: 0.8;
     }
 
     /* Mobile Menu Toggle */
@@ -820,10 +813,10 @@
       <li><a href="#socials">Socials</a></li>
       <li><a href="#epk">EPK</a></li>
       <li><a href="#games">Games</a></li>
-      <li><a href="#merch">Merch</a></li>
       <li><a href="#tour">Tour</a></li>
-      <li><a href="https://poppunkfitness.com" target="_blank" rel="noopener noreferrer">PPF</a></li>
-      <li><a href="https://starshipstudios.com" target="_blank" rel="noopener noreferrer">SSS</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="ppf.html">Fitness</a></li>
+      <li><a href="sss.html">Studio</a></li>
     </ul>
   </div>
 </nav>
@@ -838,14 +831,18 @@
   <p id="heroTagline" class="tagline"></p>
 
   <div class="btns">
-    <a class="btn" href="#music">Music</a>
-    <a class="btn" href="#socials">Socials</a>
-    <a class="btn" href="#epk">EPK</a>
-    <a class="btn" href="#games">Games</a>
-    <a class="btn" href="#merch">Merch</a>
-    <a class="btn" href="#tour">Tour</a>
-    <a class="btn" href="https://poppunkfitness.com" target="_blank" rel="noopener noreferrer">PPF</a>
-    <a class="btn" href="https://starshipstudios.com" target="_blank" rel="noopener noreferrer">SSS</a>
+    <div style="width: 100%; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a class="btn" href="#music">Music</a>
+      <a class="btn" href="#socials">Socials</a>
+      <a class="btn" href="#epk">EPK</a>
+      <a class="btn" href="#games">Games</a>
+      <a class="btn" href="#tour">Tour</a>
+    </div>
+    <div style="width: 100%; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1rem;">
+      <a class="btn" href="merch.html">Merch</a>
+      <a class="btn" href="ppf.html">Fitness</a>
+      <a class="btn" href="sss.html">Studio</a>
+    </div>
   </div>
   <div class="hero-images-bottom">
     <img src="assets/CAPTAIN/Media (28).jpeg" alt="JDX:CAPTAIN" class="hero-image">
@@ -928,8 +925,11 @@
 <section id="merch">
   <div class="merch-placeholder">
     <h2>Merch</h2>
-    <p>🛍️ Store coming soon!</p>
-    <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.8;">Check back soon for exclusive JDX:CAPTAIN merchandise</p>
+    <p>🛍️ Official JDX:CAPTAIN Merchandise</p>
+    <p style="margin-top: 1rem; font-size: 1rem; opacity: 0.8;">Check out our full store for exclusive apparel, accessories, and more!</p>
+    <div style="margin-top: 2rem;">
+      <a href="merch.html" class="btn" style="text-decoration: none; display: inline-block;">Visit Store</a>
+    </div>
   </div>
 </section>
 
@@ -967,11 +967,8 @@
 </section>
 
 <footer>
-  <p>© 2026 JDX:CAPTAIN. All rights reserved.</p>
-  <p style="margin-top: 0.5rem; font-size: 0.9rem;">Boundary-pushing genre fusion • High-energy performances</p>
-  <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.6;">
-    <a href="https://github.com/jdharris981/jdxcaptain-site" target="_blank" rel="noopener noreferrer" style="color: var(--blue); text-decoration: none;">View on GitHub</a>
-  </p>
+  <p>&copy; 2026 JDX:CAPTAIN - All Rights Reserved</p>
+  <p>Boundary-pushing genre fusion • High-energy performances</p>
 </footer>
 
 <script>
