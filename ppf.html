@@ -288,7 +288,7 @@
     /* Image Grid */
     .image-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin: 2rem 0;
     }
@@ -407,7 +407,7 @@
 
     .training-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
 
@@ -521,6 +521,15 @@
       .lifestyle-content,
       .training-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .training-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
