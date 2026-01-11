@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Merch - JDX:CAPTAIN</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official JDX:CAPTAIN Merchandise - T-shirts, Hoodies, Accessories and more">
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Printful API Configuration -->
+  <script src="config.js"></script>
+
+  <style>
+    @font-face {
+      font-family: "BetrayalOfMind";
+      src: url("assets/fonts/BetrayalOfMind-dBOZ.ttf");
+    }
+    @font-face {
+      font-family: "CMFont";
+      src: url("assets/fonts/CmFont-pgggZ.ttf");
+    }
+
+    :root {
+      --pink: #ff2fa0;
+      --blue: #00b3ff;
+      --yellow: #ffe600;
+      --text: #eaeaf0;
+      --dark-bg: #0a0a0a;
+      --section-bg: rgba(10, 10, 10, 0.85);
+    }
+
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+      scroll-behavior: smooth; 
+    }
+
+    body {
+      background: #000 url("assets/art/JDXCAPTAIN-Dino-Print.png") center/cover fixed;
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--pink);
+      box-shadow: 0 4px 20px rgba(255, 47, 160, 0.3);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      color: var(--text);
+      text-decoration: none;
+      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--blue));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--yellow);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Main Content */
+    .merch-hero {
+      min-height: 40vh;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 150px;
+      padding-bottom: 4rem;
+      position: relative;
+    }
+
+    .merch-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8));
+      z-index: 0;
+    }
+
+    .merch-hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .merch-hero h1 {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      margin-bottom: 1rem;
+      animation: glitch 3s infinite;
+      text-shadow: 
+        2px 0 var(--pink),
+        -2px 0 var(--blue),
+        0 2px var(--yellow);
+    }
+
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+    }
+
+    .merch-hero p {
+      font-family: 'CMFont', 'Montserrat', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      color: var(--yellow);
+      opacity: 0.9;
+      text-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
+    }
+
+    /* Categories */
+    .categories {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .category-btn {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid var(--pink);
+      background: rgba(0, 0, 0, 0.9);
+      color: var(--text);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      border-radius: 5px;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      background: rgba(0, 0, 0, 0.95);
+      border-color: var(--blue);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(255, 47, 160, 0.4);
+    }
+
+    /* Products Grid */
+    .products-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .product-card {
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 47, 160, 0.4);
+      border-color: var(--blue);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, rgba(255, 47, 160, 0.1), rgba(0, 179, 255, 0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-name {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+      text-shadow: 1px 0 var(--pink);
+    }
+
+    .product-category {
+      font-size: 0.85rem;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--yellow);
+      margin-bottom: 1rem;
+    }
+
+    .product-btn {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid var(--pink);
+      background: rgba(255, 47, 160, 0.1);
+      color: var(--text);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+      font-size: 0.9rem;
+    }
+
+    .product-btn:hover {
+      background: rgba(255, 47, 160, 0.3);
+      border-color: var(--blue);
+      transform: scale(1.02);
+    }
+
+    /* Product Modal */
+    .product-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 2rem;
+    }
+
+    .product-modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: rgba(0, 0, 0, 0.95);
+      border: 2px solid var(--pink);
+      border-radius: 15px;
+      max-width: 900px;
+      width: 100%;
+      padding: 2rem;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: 2px solid var(--pink);
+      color: var(--text);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 47, 160, 0.3);
+      transform: rotate(90deg);
+    }
+
+    .modal-product {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .modal-image-gallery {
+      position: relative;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .modal-image-container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-image-slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .modal-image-slide.active {
+      display: block;
+    }
+
+    .modal-image-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid var(--pink);
+      color: var(--text);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .modal-image-nav:hover {
+      background: rgba(255, 47, 160, 0.5);
+    }
+
+    .modal-image-nav.prev {
+      left: 10px;
+    }
+
+    .modal-image-nav.next {
+      right: 10px;
+    }
+
+    .modal-image-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .modal-image-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      border: 2px solid var(--pink);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .modal-image-dot.active {
+      background: var(--pink);
+    }
+
+    .modal-image {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid var(--pink);
+    }
+
+    .modal-info h2 {
+      font-family: 'BetrayalOfMind', 'Oswald', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 0 var(--pink), -2px 0 var(--blue);
+    }
+
+    .modal-price {
+      font-size: 2rem;
+      color: var(--yellow);
+      font-weight: 700;
+      margin: 1rem 0;
+    }
+
+    .modal-description {
+      margin: 1.5rem 0;
+      line-height: 1.8;
+      color: rgba(234, 234, 240, 0.9);
+    }
+
+    .size-selector {
+      margin: 1.5rem 0;
+    }
+
+    .size-selector label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .size-options {
+      width: 100%;
+    }
+
+    .size-select,
+    .color-select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 2px solid var(--pink);
+      background: rgba(0, 0, 0, 0.7);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ff2fa0' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .size-select:hover,
+    .color-select:hover {
+      border-color: var(--blue);
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .size-select:focus,
+    .color-select:focus {
+      outline: none;
+      border-color: var(--yellow);
+      box-shadow: 0 0 10px rgba(255, 230, 0, 0.3);
+    }
+
+    .size-select option,
+    .color-select option {
+      background: rgba(0, 0, 0, 0.95);
+      color: var(--text);
+      padding: 0.5rem;
+    }
+    
+    .dual-selectors {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      .dual-selectors {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .modal-add-to-cart {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--pink), var(--blue));
+      border: none;
+      color: white;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      margin-top: 1.5rem;
+    }
+
+    .modal-add-to-cart:hover {
+      transform: scale(1.02);
+      box-shadow: 0 5px 20px rgba(255, 47, 160, 0.5);
+    }
+
+    /* Footer */
+    footer { 
+      text-align: center; 
+      color: var(--blue);
+      background: rgba(0, 0, 0, 0.9);
+      border: 2px solid var(--blue);
+      border-radius: 10px;
+      padding: 3rem 1rem;
+      margin: 4rem auto 2rem;
+      max-width: 1200px;
+      text-shadow: 0 0 10px rgba(0, 179, 255, 0.5);
+    }
+
+    footer p {
+      color: var(--blue);
+      text-shadow: 0 0 10px rgba(0, 179, 255, 0.5);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .modal-product {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .categories {
+        padding: 0 1rem;
+      }
+
+      .category-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+
+    /* Loading State */
+    .product-card.loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    /* Coming Soon Badge */
+    .coming-soon {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 47, 160, 0.9);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Loading State */
+    .loading {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--yellow);
+      font-size: 1.2rem;
+    }
+
+    .loading::after {
+      content: '...';
+      animation: dots 1.5s steps(4, end) infinite;
+    }
+
+    @keyframes dots {
+      0%, 20% { content: '.'; }
+      40% { content: '..'; }
+      60%, 100% { content: '...'; }
+    }
+
+    .error-message {
+      background: rgba(255, 47, 160, 0.2);
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      color: var(--text);
+      margin: 2rem auto;
+      max-width: 600px;
+    }
+
+    .error-message h3 {
+      color: var(--pink);
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="logo">JDX:CAPTAIN</a>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#music">Music</a></li>
+      <li><a href="index.html#socials">Socials</a></li>
+      <li><a href="index.html#epk">EPK</a></li>
+      <li><a href="index.html#games">Games</a></li>
+      <li><a href="index.html#tour">Tour</a></li>
+      <li><a href="merch.html">Merch</a></li>
+      <li><a href="ppf.html">Fitness</a></li>
+      <li><a href="sss.html">Studio</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="merch-hero">
+  <h1>MERCH</h1>
+  <p>Official JDX:CAPTAIN Apparel & Accessories</p>
+</section>
+
+<div class="categories">
+  <button class="category-btn active" data-category="all">All Products</button>
+  <button class="category-btn" data-category="apparel">Apparel</button>
+  <button class="category-btn" data-category="accessories">Accessories</button>
+  <button class="category-btn" data-category="music">Music</button>
+</div>
+
+<section class="products-section">
+  <div class="products-grid" id="productsGrid">
+    <!-- Products will be dynamically inserted here -->
+  </div>
+</section>
+
+<!-- Product Modal -->
+<div class="product-modal" id="productModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div class="modal-product" id="modalProduct">
+      <!-- Modal content will be inserted here -->
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 JDX:CAPTAIN. All rights reserved.</p>
+  <p style="margin-top: 0.5rem; font-size: 0.9rem;">Official Merchandise • High-Quality Products</p>
+</footer>
+
+<script>
+// Product Data - Loaded from Printful API
+let products = [];
+let printfulProducts = []; // Store raw Printful data for cart functionality
+
+// Printful API Integration
+async function loadPrintfulProducts() {
+  const grid = document.getElementById('productsGrid');
+  
+  // Check if config is loaded
+  if (typeof PRINTFUL_CONFIG === 'undefined' || !PRINTFUL_CONFIG.API_KEY || PRINTFUL_CONFIG.API_KEY === 'YOUR_PRINTFUL_API_KEY_HERE') {
+    grid.innerHTML = `
+      <div class="error-message">
+        <h3>⚠️ API Token Not Configured</h3>
+        <p>Please add your Printful API token to <code>config.js</code></p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+          Get your API token from: <a href="https://www.printful.com/dashboard/api" target="_blank" style="color: var(--blue);">Printful Dashboard → Settings → API</a>
+        </p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+          See <code>PRINTFUL_SETUP.md</code> for detailed instructions.
+        </p>
+      </div>
+    `;
+    return;
+  }
+
+  // Show loading state
+  grid.innerHTML = '<div class="loading">Loading products from Printful</div>';
+
+  try {
+    // Use backend proxy to avoid CORS issues
+    // The proxy server (server.js) handles authentication
+    const apiUrl = '/api/printful/products';
+    const response = await fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Printful API error: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    
+    // Debug: Log the response
+    console.log('Printful API Response:', data);
+    console.log('Products found:', data.result?.length || 0);
+    
+    if (!data.result || data.result.length === 0) {
+      // Try to get stores to help debug
+      try {
+        const storesResponse = await fetch('/api/printful/stores');
+        const storesData = await storesResponse.json();
+        console.log('Available stores:', storesData);
+        
+        grid.innerHTML = `
+          <div class="error-message">
+            <h3>No Products Found</h3>
+            <p>Your API token is connected, but no products were found.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+              <strong>Possible issues:</strong>
+              <br>• Products might be in a different store than your API token
+              <br>• Products might need to be synced/published
+              <br>• Check the browser console (F12) for more details
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+              <a href="https://www.printful.com/dashboard/stores" target="_blank" style="color: var(--blue);">Check your Printful stores</a>
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+              Found ${storesData.result?.length || 0} store(s). Check server console for details.
+            </p>
+          </div>
+        `;
+      } catch (err) {
+        grid.innerHTML = `
+          <div class="error-message">
+            <h3>No Products Found</h3>
+            <p>You don't have any products in your Printful store yet.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+              Create product templates in your <a href="https://www.printful.com/dashboard/products" target="_blank" style="color: var(--blue);">Printful Dashboard</a>
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+              Check browser console (F12) and server terminal for debugging info.
+            </p>
+          </div>
+        `;
+      }
+      return;
+    }
+
+    // Store raw Printful data
+    printfulProducts = data.result;
+
+    // Transform Printful products to our format
+    products = await Promise.all(data.result.map(async (printfulProduct) => {
+      try {
+        return await transformPrintfulProduct(printfulProduct);
+      } catch (error) {
+        console.error('Error transforming product:', printfulProduct.name, error);
+        // Return a basic product structure even if transformation fails
+        return {
+          id: printfulProduct.id,
+          printfulId: printfulProduct.id,
+          name: printfulProduct.name || 'Unnamed Product',
+          category: 'apparel',
+          price: 0,
+          image: printfulProduct.thumbnail_url || 'assets/merch/JDXCaptain-Dino3.png',
+          description: printfulProduct.description || `${printfulProduct.name}. High-quality product from JDX:CAPTAIN.`,
+          sizes: ['One Size'],
+          colors: [],
+          variants: [],
+          printfulData: printfulProduct
+        };
+      }
+    }));
+
+    // Add custom images to specific products
+    // You can add your own images here by matching product name or ID
+    addCustomImages(products);
+    
+    // Add album covers as music products
+    const albumCovers = [
+      {
+        id: 'album-friends',
+        printfulId: null,
+        name: 'Me and All My Friends',
+        category: 'music',
+        price: 24.99,
+        minPrice: 1.00,
+        maxPrice: 24.99,
+        image: 'assets/Album Covers/Friends 1 png.png',
+        description: 'Me and All My Friends - Official album release from JDX:CAPTAIN. Available on vinyl and digital.',
+        sizes: ['12" LP', 'Digital Download'],
+        colors: [],
+        variants: [],
+        isAlbum: true
+      },
+      {
+        id: 'album-its-over-now',
+        printfulId: null,
+        name: "It's Over Now",
+        category: 'music',
+        price: 24.99,
+        minPrice: 1.00,
+        maxPrice: 24.99,
+        image: "assets/Album Covers/It's Over Now Album Art.png",
+        description: "It's Over Now - Official album release from JDX:CAPTAIN. Available on vinyl and digital.",
+        sizes: ['12" LP', 'Digital Download'],
+        colors: [],
+        variants: [],
+        isAlbum: true
+      },
+      {
+        id: 'album-its-time',
+        printfulId: null,
+        name: "It's Time",
+        category: 'music',
+        price: 24.99,
+        minPrice: 1.00,
+        maxPrice: 24.99,
+        image: "assets/Album Covers/It's Time.jpg",
+        description: "It's Time - Official album release from JDX:CAPTAIN. Available on vinyl and digital.",
+        sizes: ['12" LP', 'Digital Download'],
+        colors: [],
+        variants: [],
+        isAlbum: true
+      },
+      {
+        id: 'album-responsibility',
+        printfulId: null,
+        name: 'Responsibility',
+        category: 'music',
+        price: 24.99,
+        minPrice: 1.00,
+        maxPrice: 24.99,
+        image: 'assets/Album Covers/Responsibility.jpg',
+        description: 'Responsibility - Official album release from JDX:CAPTAIN. Available on vinyl and digital.',
+        sizes: ['12" LP', 'Digital Download'],
+        colors: [],
+        variants: [],
+        isAlbum: true
+      },
+      {
+        id: 'album-shallow-intentions',
+        printfulId: null,
+        name: 'Shallow Intentions',
+        category: 'music',
+        price: 24.99,
+        minPrice: 1.00,
+        maxPrice: 24.99,
+        image: 'assets/Album Covers/ShallowIntentions.jpg',
+        description: 'Shallow Intentions - Official album release from JDX:CAPTAIN. Available on vinyl and digital.',
+        sizes: ['12" LP', 'Digital Download'],
+        colors: [],
+        variants: [],
+        isAlbum: true
+      },
+      {
+        id: 'album-the-light',
+        printfulId: null,
+        name: 'The Light',
+        category: 'music',
+        price: 24.99,
+        minPrice: 1.00,
+        maxPrice: 24.99,
+        image: 'assets/Album Covers/The Light Album Cover First Draft.png',
+        description: 'The Light - Official album release from JDX:CAPTAIN. Available on vinyl and digital.',
+        sizes: ['12" LP', 'Digital Download'],
+        colors: [],
+        variants: [],
+        isAlbum: true
+      }
+    ];
+
+    // Add album covers to products array
+    products = products.concat(albumCovers);
+
+    // Add custom images to specific products
+    // Edit the addCustomImages function below to add your own images
+    addCustomImages(products);
+
+    // Render products
+    renderProducts();
+    
+  } catch (error) {
+    console.error('Error loading Printful products:', error);
+    
+    // Check if it's a CORS error
+    const isCorsError = error.message.includes('CORS') || 
+                       error.message.includes('Failed to fetch') ||
+                       error.message.includes('NetworkError');
+    
+    if (isCorsError) {
+      grid.innerHTML = `
+        <div class="error-message">
+          <h3>⚠️ Server Not Running</h3>
+          <p>The backend proxy server is not running. Start it to load products.</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+            <strong>Quick Fix:</strong>
+            <br>1. Open terminal in your project directory
+            <br>2. Run: <code style="background: rgba(255,47,160,0.2); padding: 0.2rem 0.5rem; border-radius: 3px;">npm install</code>
+            <br>3. Create <code>.env</code> file with: <code style="background: rgba(255,47,160,0.2); padding: 0.2rem 0.5rem; border-radius: 3px;">PRINTFUL_API_KEY=your-token</code>
+            <br>4. Run: <code style="background: rgba(255,47,160,0.2); padding: 0.2rem 0.5rem; border-radius: 3px;">npm start</code>
+            <br>5. Refresh this page
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+            See <code>BACKEND_SETUP.md</code> for detailed instructions.
+          </p>
+        </div>
+      `;
+    } else {
+      grid.innerHTML = `
+        <div class="error-message">
+          <h3>⚠️ Error Loading Products</h3>
+          <p>${error.message}</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+            Check your API token and network connection. Make sure your Printful store has products.
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
+            See browser console (F12) for more details.
+          </p>
+        </div>
+      `;
+    }
+  }
+}
+
+// Add custom images to products
+// Edit this function to add your own images to specific products
+function addCustomImages(products) {
+  // Example 1: Add custom images to a specific product by name
+  // products.forEach(product => {
+  //   if (product.name.toLowerCase().includes('your product name')) {
+  //     // Add your custom image to the beginning of the images array
+  //     product.images.unshift('assets/merch/your-custom-image.jpg');
+  //     // OR add to the end:
+  //     // product.images.push('assets/merch/your-custom-image.jpg');
+  //   }
+  // });
+  
+  // Example 2: Add custom images by product ID
+  // const customImages = {
+  //   '12345678': ['assets/merch/custom-image-1.jpg', 'assets/merch/custom-image-2.jpg'],
+  //   '87654321': ['assets/merch/another-custom-image.jpg']
+  // };
+  // 
+  // products.forEach(product => {
+  //   if (customImages[product.id]) {
+  //     // Add custom images to the beginning
+  //     product.images = [...customImages[product.id], ...product.images];
+  //     // OR add to the end:
+  //     // product.images = [...product.images, ...customImages[product.id]];
+  //   }
+  // });
+  
+  // Example 3: Replace all images with custom images
+  // products.forEach(product => {
+  //   if (product.name.toLowerCase().includes('specific product')) {
+  //     product.images = ['assets/merch/custom-image-1.jpg', 'assets/merch/custom-image-2.jpg'];
+  //   }
+  // });
+}
+
+// Transform Printful product to our format
+async function transformPrintfulProduct(printfulProduct) {
+  // Printful store/products endpoint returns sync_products with sync_variants already included
+  // No need to fetch individual product details - all data is in the list response
+  
+  // Get variants (sizes, colors, etc.) from sync_variants
+  // Printful API structure: sync_product has sync_variants array
+  let variants = [];
+  
+  // The product list returns sync_products, each with sync_variants
+  // But Printful store/products might return variants differently
+  if (printfulProduct.sync_variants && Array.isArray(printfulProduct.sync_variants)) {
+    variants = printfulProduct.sync_variants;
+  } else if (printfulProduct.variants) {
+    if (Array.isArray(printfulProduct.variants)) {
+      variants = printfulProduct.variants;
+    } else if (typeof printfulProduct.variants === 'object') {
+      // Variants might be an object - try to extract array from it
+      // Could be { result: [...] } or just an object with variant data
+      if (printfulProduct.variants.result && Array.isArray(printfulProduct.variants.result)) {
+        variants = printfulProduct.variants.result;
+      } else if (printfulProduct.variants.data && Array.isArray(printfulProduct.variants.data)) {
+        variants = printfulProduct.variants.data;
+      } else {
+        // Try to convert object to array
+        variants = Object.values(printfulProduct.variants).filter(v => v && typeof v === 'object');
+      }
+    }
+  }
+  
+  // Ensure it's an array
+  if (!Array.isArray(variants)) {
+    variants = [];
+  }
+  
+  // Store/products endpoint only returns summary - need to fetch details
+  // Fetch product details to get sync_variants with sizes and prices
+  let productDetails = null;
+  try {
+    // Try using the product ID from store
+    const detailsResponse = await fetch(`/api/printful/products/${printfulProduct.id}?external_id=${printfulProduct.external_id}`, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    
+    if (detailsResponse.ok) {
+      const detailsData = await detailsResponse.json();
+      productDetails = detailsData.result;
+      console.log('Successfully fetched details for', printfulProduct.name);
+    } else {
+      console.warn('Could not fetch details for', printfulProduct.name, '- Status:', detailsResponse.status);
+    }
+  } catch (error) {
+    console.warn('Error fetching details for', printfulProduct.name, ':', error);
+  }
+  
+  // Get variants from product details
+  if (productDetails?.sync_variants && Array.isArray(productDetails.sync_variants)) {
+    variants = productDetails.sync_variants;
+  } else if (productDetails?.sync_product?.sync_variants && Array.isArray(productDetails.sync_product.sync_variants)) {
+    variants = productDetails.sync_product.sync_variants;
+  } else if (productDetails?.variants && Array.isArray(productDetails.variants)) {
+    variants = productDetails.variants;
+  }
+  
+  // Extract unique sizes from variants
+  // Printful sync_variants have 'size' field
+  const sizes = variants.length > 0 
+    ? [...new Set(variants.map(v => v.size || v.name || v.variant_id || 'One Size').filter(Boolean))]
+    : ['One Size'];
+  
+  // Extract unique colors from variants
+  const colors = variants.length > 0
+    ? [...new Set(variants.map(v => v.color || v.color_code).filter(Boolean))]
+    : [];
+  
+  // Determine category based on product type (do this first to know if it's apparel)
+  const type = (printfulProduct.type || '').toLowerCase();
+  const name = (printfulProduct.name || '').toLowerCase();
+  let category = 'apparel';
+  
+  // Check for specific product names first
+  if (name.includes('travel mug') || name.includes('mug') || name.includes('cup')) {
+    category = 'accessories';
+  } else if (type.includes('hat') || type.includes('cap') || type.includes('accessory') || type.includes('mug') || type.includes('cup')) {
+    category = 'accessories';
+  } else if (type.includes('vinyl') || type.includes('cd') || type.includes('music')) {
+    category = 'music';
+  }
+  
+  // Collect all available images
+  const allImages = [];
+  
+  // Add main product image
+  if (printfulProduct.thumbnail_url) allImages.push(printfulProduct.thumbnail_url);
+  if (printfulProduct.image && !allImages.includes(printfulProduct.image)) {
+    allImages.push(printfulProduct.image);
+  }
+  
+  // Add variant images (different colors/styles may have different images)
+  variants.forEach(variant => {
+    if (variant.image && !allImages.includes(variant.image)) {
+      allImages.push(variant.image);
+    }
+    if (variant.files && Array.isArray(variant.files)) {
+      variant.files.forEach(file => {
+        if (file.preview_url && !allImages.includes(file.preview_url)) {
+          allImages.push(file.preview_url);
+        }
+      });
+    }
+  });
+  
+  // For apparel items, remove the second image if there are multiple
+  if (category === 'apparel' && allImages.length > 1) {
+    allImages.splice(1, 1); // Remove the second image (index 1)
+  }
+  
+  // For dino travel mug, remove the second image if there are multiple
+  if (name.includes('dino') && name.includes('travel mug') && allImages.length > 1) {
+    allImages.splice(1, 1); // Remove the second image (index 1)
+  }
+  
+  // Get main image (first image or fallback)
+  const mainImage = allImages.length > 0 
+    ? allImages[0] 
+    : 'assets/merch/JDXCaptain-Dino3.png';
+  
+  // If no images collected, use fallback
+  if (allImages.length === 0) {
+    allImages.push(mainImage);
+  }
+
+  // Get price (use first variant's price or product price)
+  // Printful sync_variants have 'retail_price' field
+  let price = 0;
+  if (variants.length > 0) {
+    // Try variant price first - Printful uses retail_price
+    const firstVariant = variants[0];
+    price = firstVariant.retail_price || firstVariant.price || firstVariant.cost || 0;
+  }
+  // Fallback to product-level price
+  if (!price || price === 0) {
+    const syncProduct = printfulProduct.sync_product || printfulProduct;
+    price = syncProduct.retail_price || syncProduct.price || printfulProduct.retail_price || printfulProduct.price || 0;
+  }
+  
+  console.log('Extracted price for', printfulProduct.name, ':', price);
+  
+  // Get description
+  const description = printfulProduct.description || 
+                     printfulProduct.sync_product?.description ||
+                     `${printfulProduct.name}. High-quality product from JDX:CAPTAIN.`;
+
+  return {
+    id: printfulProduct.id,
+    printfulId: printfulProduct.id, // Keep Printful ID for cart
+    name: printfulProduct.name,
+    category: category,
+    price: parseFloat(price),
+    image: mainImage, // Keep for backward compatibility
+    images: allImages, // Array of all product images
+    description: description,
+    sizes: sizes.length > 0 ? sizes : ['One Size'],
+    colors: colors.length > 0 ? colors : [],
+    variants: variants, // Store full variant data for cart
+    printfulData: printfulProduct // Store full Printful data
+  };
+}
+
+// Initialize products
+function renderProducts(filterCategory = 'all') {
+  const grid = document.getElementById('productsGrid');
+  grid.innerHTML = '';
+  
+  const filteredProducts = filterCategory === 'all' 
+    ? products 
+    : products.filter(p => p.category === filterCategory);
+  
+  filteredProducts.forEach(product => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.onclick = () => openModal(product);
+    
+    card.innerHTML = `
+      <div class="product-image">
+        <img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'">
+      </div>
+      <div class="product-info">
+        <div class="product-name">${product.name}</div>
+        <div class="product-category">${product.category}</div>
+        <div class="product-price">${product.isAlbum && product.minPrice && product.maxPrice ? `$${product.minPrice.toFixed(2)} - $${product.maxPrice.toFixed(2)}` : `$${product.price.toFixed(2)}`}</div>
+        <button class="product-btn" onclick="event.stopPropagation(); openModal(${JSON.stringify(product).replace(/"/g, '&quot;')})">View Details</button>
+      </div>
+    `;
+    
+    grid.appendChild(card);
+  });
+}
+
+// Category filtering
+document.querySelectorAll('.category-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    renderProducts(this.dataset.category);
+  });
+});
+
+// Modal functions
+function openModal(product) {
+  const modal = document.getElementById('productModal');
+  const modalContent = document.getElementById('modalProduct');
+  
+  // Build variant options (sizes with prices)
+  let variantOptions = '';
+  console.log('Product variants:', product.variants);
+  console.log('Product sizes:', product.sizes);
+  
+  // Store variant data for the dropdown
+  window.currentProductVariants = {};
+  window.currentProductVariantMap = {}; // For dual dropdowns: map[size][color] = variant
+  
+  // Check if this product should use dual dropdowns (size + color separate)
+  const useDualDropdowns = product.name && product.name.includes('Various Colors');
+  
+  if (product.variants && Array.isArray(product.variants) && product.variants.length > 0) {
+    if (useDualDropdowns) {
+      // For products with various colors, use separate size and color dropdowns
+      const sizes = new Set();
+      const colors = new Set();
+      const variantMap = {}; // Map: {size: {color: variant}}
+      
+      product.variants.forEach(variant => {
+        const size = variant.size || variant.name || 'One Size';
+        const color = variant.color || 
+                      variant.color_code || 
+                      variant.option1 || 
+                      variant.option2 || 
+                      variant.product?.color || 
+                      'Default';
+        
+        sizes.add(size);
+        colors.add(color);
+        
+        if (!variantMap[size]) {
+          variantMap[size] = {};
+        }
+        variantMap[size][color] = variant;
+        
+        // Store variant data
+        const variantId = variant.id || variant.sync_variant_id || variant.variant_id || null;
+        if (variantId) {
+          window.currentProductVariants[variantId] = variant;
+        }
+      });
+      
+      window.currentProductVariantMap = variantMap;
+      
+      // Build size dropdown
+      let sizeOptions = '<option value="">Select size...</option>';
+      Array.from(sizes).sort().forEach(size => {
+        sizeOptions += `<option value="${size}">${size}</option>`;
+      });
+      
+      // Build color dropdown
+      let colorOptions = '<option value="">Select color...</option>';
+      Array.from(colors).sort().forEach(color => {
+        colorOptions += `<option value="${color}">${color}</option>`;
+      });
+      
+      variantOptions = `
+        <div class="dual-selectors">
+          <div>
+            <label for="sizeSelect">Size</label>
+            <select class="size-select" id="sizeSelect" onchange="updateVariantFromDualDropdowns()">
+              ${sizeOptions}
+            </select>
+          </div>
+          <div>
+            <label for="colorSelect">Color</label>
+            <select class="color-select" id="colorSelect" onchange="updateVariantFromDualDropdowns()">
+              ${colorOptions}
+            </select>
+          </div>
+        </div>
+      `;
+    } else {
+      // For other products, use single combined dropdown
+      variantOptions = '<option value="">Select size & color...</option>';
+      
+      product.variants.forEach(variant => {
+        const size = variant.size || variant.name || 'One Size';
+        const color = variant.color || 
+                      variant.color_code || 
+                      variant.option1 || 
+                      variant.option2 || 
+                      variant.product?.color || 
+                      '';
+        
+        let displayText = size;
+        if (color && color !== size && color.trim() !== '') {
+          displayText += ` - ${color}`;
+        }
+        
+        const variantPrice = variant.retail_price || variant.price || variant.cost || 0;
+        const priceDisplay = variantPrice > 0 ? ` - $${parseFloat(variantPrice).toFixed(2)}` : '';
+        const variantId = variant.id || variant.sync_variant_id || variant.variant_id || null;
+        
+        variantOptions += `<option value="${variantId || ''}" data-variant-id="${variantId}">${displayText}${priceDisplay}</option>`;
+        
+        if (variantId) {
+          window.currentProductVariants[variantId] = variant;
+        }
+      });
+    }
+  } else if (product.sizes && Array.isArray(product.sizes) && product.sizes.length > 0) {
+    // Fallback to sizes array
+    variantOptions = '<option value="">Select a size...</option>';
+    product.sizes.forEach(size => {
+      variantOptions += `<option value="${size}">${size}</option>`;
+    });
+  } else {
+    // No variants or sizes - show default
+    variantOptions = '<option value="one-size">One Size</option>';
+  }
+  
+  // Get images array (use images if available, otherwise fallback to single image)
+  const productImages = product.images && product.images.length > 0 
+    ? product.images 
+    : [product.image];
+  
+  // Build image gallery HTML
+  let imageGalleryHTML = '';
+  if (productImages.length > 1) {
+    // Multiple images - show carousel
+    imageGalleryHTML = `
+      <div class="modal-image-gallery">
+        <div class="modal-image-container">
+          ${productImages.map((img, index) => `
+            <img src="${img}" alt="${product.name} - Image ${index + 1}" 
+                 class="modal-image-slide ${index === 0 ? 'active' : ''}" 
+                 onerror="this.style.display='none'">
+          `).join('')}
+          <button class="modal-image-nav prev" onclick="changeModalImage(-1)">‹</button>
+          <button class="modal-image-nav next" onclick="changeModalImage(1)">›</button>
+        </div>
+        <div class="modal-image-dots">
+          ${productImages.map((_, index) => `
+            <span class="modal-image-dot ${index === 0 ? 'active' : ''}" 
+                  onclick="goToModalImage(${index})"></span>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  } else {
+    // Single image - show simple image
+    imageGalleryHTML = `
+      <img src="${productImages[0]}" alt="${product.name}" class="modal-image" onerror="this.style.display='none'">
+    `;
+  }
+  
+  // Store current image index for this modal
+  window.currentModalImageIndex = 0;
+  window.currentModalImages = productImages;
+  
+  modalContent.innerHTML = `
+    ${imageGalleryHTML}
+    <div class="modal-info">
+      <h2>${product.name}</h2>
+      <div class="modal-price">${product.isAlbum && product.minPrice && product.maxPrice ? `$${product.minPrice.toFixed(2)} - $${product.maxPrice.toFixed(2)}` : (product.price > 0 ? `$${product.price.toFixed(2)}` : 'Price varies by size')}</div>
+      <div class="modal-description">${product.description}</div>
+      ${product.isAlbum ? 
+        `<div class="size-selector">
+          <label>Format</label>
+          <select class="size-select" id="variantSelect">
+            <option value="vinyl">12" LP Vinyl - $${product.price.toFixed(2)}</option>
+            <option value="digital">Digital Download - $1.00</option>
+          </select>
+        </div>
+        <a href="index.html#music" class="modal-add-to-cart" style="text-decoration: none; display: block; text-align: center;">Listen on Spotify</a>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7; text-align: center;">
+          🎵 Available on vinyl and digital platforms
+        </p>` :
+        `<div class="size-selector">
+          ${useDualDropdowns ? '' : '<label>Size / Option</label>'}
+          ${useDualDropdowns ? variantOptions : `<select class="size-select" id="variantSelect" onchange="selectVariantFromDropdown(this)">${variantOptions}</select>`}
+        </div>
+        <button class="modal-add-to-cart" onclick="addToCart(${product.id}, ${product.printfulId || product.id})">Add to Cart</button>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7; text-align: center;">
+          🛍️ Powered by Printful • High-quality print-on-demand products
+        </p>`
+      }
+    </div>
+  `;
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  const modal = document.getElementById('productModal');
+  modal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+let selectedVariantId = null;
+
+function selectVariantFromDropdown(selectElement) {
+  const selectedOption = selectElement.options[selectElement.selectedIndex];
+  selectedVariantId = selectedOption.value || selectedOption.getAttribute('data-variant-id') || null;
+  
+  // Update price if variant has different price
+  if (selectedVariantId && window.currentProductVariants[selectedVariantId]) {
+    const variant = window.currentProductVariants[selectedVariantId];
+    const variantPrice = variant.retail_price || variant.price || variant.cost || 0;
+    if (variantPrice > 0) {
+      const priceElement = document.querySelector('.modal-price');
+      if (priceElement) {
+        priceElement.textContent = `$${parseFloat(variantPrice).toFixed(2)}`;
+      }
+    }
+  }
+}
+
+function updateVariantFromDualDropdowns() {
+  const sizeSelect = document.getElementById('sizeSelect');
+  const colorSelect = document.getElementById('colorSelect');
+  
+  if (!sizeSelect || !colorSelect) return;
+  
+  const selectedSize = sizeSelect.value;
+  const selectedColor = colorSelect.value;
+  
+  if (selectedSize && selectedColor && window.currentProductVariantMap) {
+    const variant = window.currentProductVariantMap[selectedSize]?.[selectedColor];
+    if (variant) {
+      selectedVariantId = variant.id || variant.sync_variant_id || variant.variant_id || null;
+      
+      // Update price
+      const variantPrice = variant.retail_price || variant.price || variant.cost || 0;
+      if (variantPrice > 0) {
+        const priceElement = document.querySelector('.modal-price');
+        if (priceElement) {
+          priceElement.textContent = `$${parseFloat(variantPrice).toFixed(2)}`;
+        }
+      }
+    } else {
+      selectedVariantId = null;
+    }
+  } else {
+    selectedVariantId = null;
+  }
+}
+
+// Keep old function for backwards compatibility
+function selectVariant(element, variantId = null) {
+  selectedVariantId = variantId;
+}
+
+// Image carousel functions for modal
+function changeModalImage(direction) {
+  if (!window.currentModalImages || window.currentModalImages.length <= 1) return;
+  
+  window.currentModalImageIndex += direction;
+  
+  if (window.currentModalImageIndex < 0) {
+    window.currentModalImageIndex = window.currentModalImages.length - 1;
+  } else if (window.currentModalImageIndex >= window.currentModalImages.length) {
+    window.currentModalImageIndex = 0;
+  }
+  
+  updateModalImageDisplay();
+}
+
+function goToModalImage(index) {
+  if (!window.currentModalImages || index < 0 || index >= window.currentModalImages.length) return;
+  window.currentModalImageIndex = index;
+  updateModalImageDisplay();
+}
+
+function updateModalImageDisplay() {
+  const slides = document.querySelectorAll('.modal-image-slide');
+  const dots = document.querySelectorAll('.modal-image-dot');
+  
+  slides.forEach((slide, index) => {
+    if (index === window.currentModalImageIndex) {
+      slide.classList.add('active');
+    } else {
+      slide.classList.remove('active');
+    }
+  });
+  
+  dots.forEach((dot, index) => {
+    if (index === window.currentModalImageIndex) {
+      dot.classList.add('active');
+    } else {
+      dot.classList.remove('active');
+    }
+  });
+}
+
+function addToCart(productId, printfulProductId) {
+  const product = products.find(p => p.id === productId);
+  
+  if (!product) {
+    alert('Product not found');
+    return;
+  }
+
+  // Check if variant is selected (if product has variants)
+  if (product.variants && product.variants.length > 0 && !selectedVariantId) {
+    alert('Please select a size/option');
+    return;
+  }
+
+  // For now, redirect to Printful store or implement cart
+  // Option 1: Redirect to Printful store (if you have one set up)
+  // window.location.href = `https://your-printful-store.com/product/${printfulProductId}`;
+  
+  // Option 2: Use Printful API to create order (requires backend)
+  // Option 3: Show message with link to Printful store
+  alert(`Ready to add ${product.name} to cart!\n\nTo enable full cart functionality, you'll need to:\n1. Set up a Printful store\n2. Or integrate with a shopping cart system\n3. Or use Printful's embedded store widget`);
+  
+  // Close modal
+  closeModal();
+  
+  // You can implement a cart system here or redirect to your store
+  console.log('Add to cart:', {
+    productId: productId,
+    printfulProductId: printfulProductId,
+    variantId: selectedVariantId,
+    product: product
+  });
+}
+
+// Close modal on outside click
+document.getElementById('productModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeModal();
+  }
+});
+
+// Close modal on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
+
+// Initialize - Load products from Printful
+loadPrintfulProducts();
+</script>
+
+</body>
+</html>
